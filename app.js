@@ -35,7 +35,7 @@ const state = {
   search: '',
   sortKey: 'openArbPct',
   sortDir: -1,
-  threshold: 1.0,
+  threshold: 5.0,
   interval: 10,
   autoRefresh: true,
   theme: localStorage.getItem('gssm-theme') || 'dark',
@@ -180,7 +180,7 @@ function scheduleReconnect() {
 
 function currentViewContracts() {
   const all = Object.keys(STOCK_NAMES);
-  if (state.view === 'ashare') return all.filter((c) => STOCK_NAMES[c].market === 'A股' || STOCK_NAMES[c].market === 'A+H');
+  if (state.view === 'ashare') return all.filter((c) => STOCK_NAMES[c].market === 'A股');
   if (state.view === 'hk') return all.filter((c) => STOCK_NAMES[c].mkt === '港股');
   return all;
 }
@@ -355,6 +355,7 @@ function tickerToRow(contract, t, fresh) {
 
   return {
     contract, name: info.name, market: info.market, aCode: info.aCode || '',
+    hkCode: info.tencent && info.tencent.startsWith('hk') ? info.tencent.slice(2) + '.HK' : '',
     mktMkt: info.mkt || null, mktApprox: mkt ? mkt.approx : false,
     mktTime: mkt ? mkt.time : null, mktCur: mkt ? mkt.cur : null,
     bid, ask, spread, spreadPct,
@@ -369,7 +370,7 @@ function tickerToRow(contract, t, fresh) {
 
 function filteredRows() {
   let rows = lastSnapshot || [];
-  if (state.view === 'ashare') rows = rows.filter((r) => r.market === 'A股' || r.market === 'A+H');
+  if (state.view === 'ashare') rows = rows.filter((r) => r.market === 'A股');
   else if (state.view === 'hk') rows = rows.filter((r) => r.mktMkt === '港股');
   if (state.search) {
     const q = state.search.toLowerCase();
@@ -392,8 +393,8 @@ function filteredRows() {
 
 /* ---------------- 渲染 ---------------- */
 
-const BADGE_CLASS = { 'A股': 'ashare', 'A+H': 'ah', '港股': 'hk' };
-const BADGE_TEXT = { 'A股': 'A股', 'A+H': 'A+H', '港股': '港股' };
+const BADGE_CLASS = { 'A股': 'ashare', '港股': 'hk' };
+const BADGE_TEXT = { 'A股': 'A股', '港股': '港股' };
 const MKT_TEXT = { 'A股': 'A股', '港股': '港股', '美股': '美股' };
 
 function render() {
@@ -408,7 +409,7 @@ function renderStats() {
   const withMkt = rows.filter((r) => r.mktBid !== null);
   $('statCount').textContent = rows.length;
   $('statCountNote').textContent =
-    state.view === 'ashare' ? '中国 A 股相关（含 A+H）' :
+    state.view === 'ashare' ? '对标 A 股的合约' :
     state.view === 'hk' ? '对标港股的合约' : '全部股票合约';
   const openBest = withMkt.filter((r) => r.openArbPct !== null).sort((a, b) => b.openArbPct - a.openArbPct)[0];
   $('statOpen').textContent = openBest ? fmt(openBest.openArbPct) + '%' : '—';
@@ -447,7 +448,7 @@ function renderTable() {
   }
   tbody.innerHTML = rows.map((r) => {
     const badge = BADGE_CLASS[r.market]
-      ? `<span class="badge ${BADGE_CLASS[r.market]}" title="${r.aCode ? 'A股代码 ' + r.aCode : ''}">${BADGE_TEXT[r.market]}</span>` : '';
+      ? `<span class="badge ${BADGE_CLASS[r.market]}" title="${r.market === 'A股' ? 'A股代码 ' + r.aCode : r.market === '港股' ? '港股代码 ' + r.hkCode : ''}">${BADGE_TEXT[r.market]}</span>` : '';
     const mktBadge = r.mktMkt ? `<span class="badge ${r.mktMkt === 'A股' ? 'ashare' : r.mktMkt === '港股' ? 'hk' : 'us'}">${MKT_TEXT[r.mktMkt]}</span>` : '';
     const premBadge = r.prem !== null && Math.abs(r.prem) >= 0.3
       ? `<span class="prem ${r.prem > 0 ? 'prem-up' : 'prem-down'}" title="Gate 中间价相对市场${r.prem > 0 ? '溢价' : '折价'}">${r.prem > 0 ? '溢' : '折'}${fmt(Math.abs(r.prem))}%</span>` : '';
@@ -595,7 +596,7 @@ function toast(msg) {
 (async function init() {
   document.documentElement.dataset.theme = state.theme;
   await loadNames();
-  const cntAshare = Object.values(STOCK_NAMES).filter((v) => v.market === 'A股' || v.market === 'A+H').length;
+  const cntAshare = Object.values(STOCK_NAMES).filter((v) => v.market === 'A股').length;
   const cntHk = Object.values(STOCK_NAMES).filter((v) => v.mkt === '港股').length;
   $('cntAshare').textContent = cntAshare;
   $('cntHk').textContent = cntHk;

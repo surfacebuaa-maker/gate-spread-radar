@@ -27,7 +27,7 @@
   <div class="stat-card"><div class="stat-label">监控合约</div><div class="stat-value" id="statCount">—</div><div class="stat-note" id="statCountNote">当前视图</div></div>
   <div class="stat-card warn"><div class="stat-label">最大开仓差价</div><div class="stat-value" id="statOpen">—</div><div class="stat-note" id="statOpenNote">买市场 · 卖Gate</div></div>
   <div class="stat-card warn"><div class="stat-label">最大清仓差价</div><div class="stat-value" id="statClose">—</div><div class="stat-note" id="statCloseNote">卖市场 · 买Gate</div></div>
-  <div class="stat-card danger"><div class="stat-label">开仓机会</div><div class="stat-value" id="statOver">—</div><div class="stat-note" id="statOverNote">开仓差价 ≥ 1.00%</div></div>
+  <div class="stat-card danger"><div class="stat-label">开仓机会</div><div class="stat-value" id="statOver">—</div><div class="stat-note" id="statOverNote">开仓差价 ≥ 5.00%</div></div>
   <div class="stat-card live"><div class="stat-label">数据状态</div><div class="stat-value" id="statStatus">连接中…</div><div class="stat-note" id="statTime">—</div></div>
 </section>
 
@@ -42,10 +42,10 @@
     <label class="inline-label">机会阈值
       <select id="thresholdSel">
         <option value="0.5">0.5%</option>
-        <option value="1" selected>1%</option>
+        <option value="1">1%</option>
         <option value="2">2%</option>
         <option value="3">3%</option>
-        <option value="5">5%</option>
+        <option value="5" selected>5%</option>
       </select>
     </label>
     <label class="inline-label">刷新

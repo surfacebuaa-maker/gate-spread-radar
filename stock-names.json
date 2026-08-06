@@ -534,7 +534,7 @@
  },
  "GIGADEV_USDT": {
   "name": "兆易创新 03986.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "603986.SH",
   "tencent": "hk03986",
   "mkt": "港股",
@@ -675,7 +675,7 @@
  },
  "ZJINNOLIGHT_USDT": {
   "name": "中际旭创 03308.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "300308.SZ",
   "tencent": "hk03308",
   "mkt": "港股",
@@ -782,7 +782,7 @@
  },
  "SMIC_USDT": {
   "name": "中芯国际 00981.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "688981.SH",
   "tencent": "hk00981",
   "mkt": "港股",
@@ -938,7 +938,7 @@
  },
  "HHGRACE_USDT": {
   "name": "华虹宏力 01347.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "688347.SH",
   "tencent": "hk01347",
   "mkt": "港股",
@@ -1164,7 +1164,7 @@
  },
  "YOFC_USDT": {
   "name": "长飞光纤光缆 06869.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "601869.SH",
   "tencent": "hk06869",
   "mkt": "港股",
@@ -1662,7 +1662,7 @@
  },
  "CATL_USDT": {
   "name": "宁德时代 03750.HK",
-  "market": "A+H",
+  "market": "港股",
   "aCode": "300750.SZ",
   "tencent": "hk03750",
   "mkt": "港股",
