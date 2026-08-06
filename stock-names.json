@@ -1,0 +1,2161 @@
+{
+ "UNITREE_USDT": {
+  "name": "宇树科技",
+  "market": "其他",
+  "tencent": "usUNITREE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SNDK_USDT": {
+  "name": "闪迪",
+  "market": "其他",
+  "tencent": "usSNDK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SKHYNIX_USDT": {
+  "name": "SK 海力士",
+  "market": "其他",
+  "tencent": "usSKHYNIX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SPCX_USDT": {
+  "name": "SpaceX",
+  "market": "其他",
+  "tencent": "usSPCX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SOXL_USDT": {
+  "name": "3 倍做多半导体 ETF",
+  "market": "其他",
+  "tencent": "usSOXL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "DRAM_USDT": {
+  "name": "伦希尔存储芯片 ETF",
+  "market": "其他",
+  "tencent": "usDRAM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MU_USDT": {
+  "name": "美光科技",
+  "market": "其他",
+  "tencent": "usMU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SKHY_USDT": {
+  "name": "SK 海力士",
+  "market": "其他",
+  "tencent": "usSKHY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "METAX_USDT": {
+  "name": "元宇宙",
+  "market": "其他",
+  "tencent": "usMETAX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "RKLB_USDT": {
+  "name": "火箭实验室",
+  "market": "其他",
+  "tencent": "usRKLB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CXMT_USDT": {
+  "name": "长鑫存储 (688825.SH)",
+  "market": "A股",
+  "tencent": "sh688825",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "SNXX_USDT": {
+  "name": "两倍做多闪迪每日杠杆 ETF",
+  "market": "其他",
+  "tencent": "usSNXX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SAMSUNG_USDT": {
+  "name": "三星电子",
+  "market": "其他",
+  "tencent": "usSAMSUNG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LITE_USDT": {
+  "name": "鲁门图姆",
+  "market": "其他",
+  "tencent": "usLITE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "QCOM_USDT": {
+  "name": "高通",
+  "market": "其他",
+  "tencent": "usQCOM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BE_USDT": {
+  "name": "Bloom Energy Corporation",
+  "market": "其他",
+  "tencent": "usBE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CRCLX_USDT": {
+  "name": "Circle",
+  "market": "其他",
+  "tencent": "usCRCLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CRWV_USDT": {
+  "name": "CoreWeave Inc.",
+  "market": "其他",
+  "tencent": "usCRWV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MRVL_USDT": {
+  "name": "迈威尔科技",
+  "market": "其他",
+  "tencent": "usMRVL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "QQQX_USDT": {
+  "name": "纳斯达克 100 指数 ETF",
+  "market": "其他",
+  "tencent": "usQQQX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MSFT_USDT": {
+  "name": "微软",
+  "market": "其他",
+  "tencent": "usMSFT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MSTRX_USDT": {
+  "name": "微策略",
+  "market": "其他",
+  "tencent": "usMSTRX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AXTI_USDT": {
+  "name": "安科泰克",
+  "market": "其他",
+  "tencent": "usAXTI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NBIS_USDT": {
+  "name": "Nebius Group N.V.",
+  "market": "其他",
+  "tencent": "usNBIS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TSLAX_USDT": {
+  "name": "特斯拉",
+  "market": "其他",
+  "tencent": "usTSLAX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ARM_USDT": {
+  "name": "安谋",
+  "market": "其他",
+  "tencent": "usARM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CBRS_USDT": {
+  "name": "赛睿思",
+  "market": "其他",
+  "tencent": "usCBRS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GOOGLX_USDT": {
+  "name": "谷歌",
+  "market": "其他",
+  "tencent": "usGOOGLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SPYX_USDT": {
+  "name": "标普 500",
+  "market": "其他",
+  "tencent": "usSPYX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMD_USDT": {
+  "name": "超威半导体",
+  "market": "其他",
+  "tencent": "usAMD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SOXS_USDT": {
+  "name": "三倍做空半导体每日杠杆 ETF",
+  "market": "其他",
+  "tencent": "usSOXS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MUU_USDT": {
+  "name": "2 倍做多美光每日 ETF",
+  "market": "其他",
+  "tencent": "usMUU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "INTC_USDT": {
+  "name": "英特尔",
+  "market": "其他",
+  "tencent": "usINTC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AAPLX_USDT": {
+  "name": "苹果",
+  "market": "其他",
+  "tencent": "usAAPLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMZNX_USDT": {
+  "name": "亚马逊",
+  "market": "其他",
+  "tencent": "usAMZNX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GLW_USDT": {
+  "name": "康宁",
+  "market": "其他",
+  "tencent": "usGLW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EWY_USDT": {
+  "name": "安硕 MSCI 韩国 ETF",
+  "market": "其他",
+  "tencent": "usEWY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "DELL_USDT": {
+  "name": "戴尔科技",
+  "market": "其他",
+  "tencent": "usDELL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NVDAX_USDT": {
+  "name": "英伟达",
+  "market": "其他",
+  "tencent": "usNVDAX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XIAOMI_USDT": {
+  "name": "小米集团 01810.HK",
+  "market": "港股",
+  "tencent": "hk01810",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "ZHIPU_USDT": {
+  "name": "智谱 02513.HK",
+  "market": "港股",
+  "tencent": "hk02513",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "WDC_USDT": {
+  "name": "西部数据公司",
+  "market": "其他",
+  "tencent": "usWDC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ORCLX_USDT": {
+  "name": "甲骨文",
+  "market": "其他",
+  "tencent": "usORCLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TQQQX_USDT": {
+  "name": "三倍做多纳斯达克 100 ETF",
+  "market": "其他",
+  "tencent": "usTQQQX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "INTW_USDT": {
+  "name": "两倍做多英特尔每日杠杆 ETF",
+  "market": "其他",
+  "tencent": "usINTW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "COINX_USDT": {
+  "name": "币基",
+  "market": "其他",
+  "tencent": "usCOINX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TSM_USDT": {
+  "name": "台积电",
+  "market": "其他",
+  "tencent": "usTSM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ASML_USDT": {
+  "name": "阿斯麦",
+  "market": "其他",
+  "tencent": "usASML",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IREN_USDT": {
+  "name": "Iris Energy",
+  "market": "其他",
+  "tencent": "usIREN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KIMI_USDT": {
+  "name": "月之暗面 (KIMI AI)",
+  "market": "其他",
+  "tencent": "usKIMI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AVGO_USDT": {
+  "name": "博通",
+  "market": "其他",
+  "tencent": "usAVGO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NOK_USDT": {
+  "name": "诺基亚",
+  "market": "其他",
+  "tencent": "usNOK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MINIMAX_USDT": {
+  "name": "MINIMAX-W 00100.HK",
+  "market": "港股",
+  "tencent": "hk00100",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "ALAB_USDT": {
+  "name": "Astera Labs 公司",
+  "market": "其他",
+  "tencent": "usALAB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMAT_USDT": {
+  "name": "应用材料",
+  "market": "其他",
+  "tencent": "usAMAT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BOT_USDT": {
+  "name": "机器人策略封闭式基金",
+  "market": "其他",
+  "tencent": "usBOT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IBM_USDT": {
+  "name": "IBM",
+  "market": "其他",
+  "tencent": "usIBM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BABA_USDT": {
+  "name": "BABA",
+  "market": "其他",
+  "tencent": "usBABA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HOODX_USDT": {
+  "name": "罗宾汉",
+  "market": "其他",
+  "tencent": "usHOODX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FLNC_USDT": {
+  "name": "弗伦斯能源",
+  "market": "其他",
+  "tencent": "usFLNC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SNOW_USDT": {
+  "name": "Snowflake Inc.",
+  "market": "其他",
+  "tencent": "usSNOW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TSEM_USDT": {
+  "name": "高塔半导体",
+  "market": "其他",
+  "tencent": "usTSEM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ASTS_USDT": {
+  "name": "AST 太空移动",
+  "market": "其他",
+  "tencent": "usASTS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KSTR_USDT": {
+  "name": "景顺方舟上证科创板 50 指数 ETF",
+  "market": "其他",
+  "tencent": "usKSTR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SOXX_USDT": {
+  "name": "安硕半导体行业 ETF",
+  "market": "其他",
+  "tencent": "usSOXX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SMCI_USDT": {
+  "name": "超微电脑",
+  "market": "其他",
+  "tencent": "usSMCI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BMNR_USDT": {
+  "name": "BitMine",
+  "market": "其他",
+  "tencent": "usBMNR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "USAR_USDT": {
+  "name": "美国稀土",
+  "market": "其他",
+  "tencent": "usUSAR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "OPENAI_USDT": {
+  "name": "OpenAI",
+  "market": "其他",
+  "tencent": "usOPENAI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FLEX_USDT": {
+  "name": "伟创力",
+  "market": "其他",
+  "tencent": "usFLEX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IONQ_USDT": {
+  "name": "IonQ",
+  "market": "其他",
+  "tencent": "usIONQ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HIMS_USDT": {
+  "name": "希姆斯健康",
+  "market": "其他",
+  "tencent": "usHIMS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TENCENT_USDT": {
+  "name": "腾讯控股 00700.HK",
+  "market": "港股",
+  "tencent": "hk00700",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "BSP_USDT": {
+  "name": "弯勺科技",
+  "market": "其他",
+  "tencent": "usBSP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XIAOMIHKD_USDT": {
+  "name": "小米集团 01810.HK",
+  "market": "港股",
+  "tencent": "hk01810",
+  "mkt": "港股",
+  "cur": "HKD",
+  "unit": "HKD"
+ },
+ "ANTHROPIC_USDT": {
+  "name": "Anthropic",
+  "market": "其他",
+  "tencent": "usANTHROPIC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GIGADEV_USDT": {
+  "name": "兆易创新 03986.HK",
+  "market": "A+H",
+  "aCode": "603986.SH",
+  "tencent": "hk03986",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "NOW_USDT": {
+  "name": "服务现在",
+  "market": "其他",
+  "tencent": "usNOW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TER_USDT": {
+  "name": "泰瑞达",
+  "market": "其他",
+  "tencent": "usTER",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NFLX_USDT": {
+  "name": "奈飞",
+  "market": "其他",
+  "tencent": "usNFLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JPM_USDT": {
+  "name": "JPM",
+  "market": "其他",
+  "tencent": "usJPM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "UBER_USDT": {
+  "name": "Uber",
+  "market": "其他",
+  "tencent": "usUBER",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EWJ_USDT": {
+  "name": "安硕 MSCI 日本 ETF",
+  "market": "其他",
+  "tencent": "usEWJ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ZM_USDT": {
+  "name": "Zoom 通讯",
+  "market": "其他",
+  "tencent": "usZM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LRCX_USDT": {
+  "name": "泛林集团",
+  "market": "其他",
+  "tencent": "usLRCX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NVO_USDT": {
+  "name": "诺和诺德",
+  "market": "其他",
+  "tencent": "usNVO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CAT_USDT": {
+  "name": "卡特彼勒",
+  "market": "其他",
+  "tencent": "usCAT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "APP_USDT": {
+  "name": "Applovin",
+  "market": "其他",
+  "tencent": "usAPP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TXN_USDT": {
+  "name": "德州仪器公司",
+  "market": "其他",
+  "tencent": "usTXN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ADBE_USDT": {
+  "name": "Adobe",
+  "market": "其他",
+  "tencent": "usADBE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ONDS_USDT": {
+  "name": "Ondas",
+  "market": "其他",
+  "tencent": "usONDS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SAMSUNGEM_USDT": {
+  "name": "三星电机",
+  "market": "其他",
+  "tencent": "usSAMSUNGEM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IWM_USDT": {
+  "name": "贝莱德罗素 2000 ETF",
+  "market": "其他",
+  "tencent": "usIWM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GDX_USDT": {
+  "name": "VanEck 黄金矿业 ETF",
+  "market": "其他",
+  "tencent": "usGDX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VOO_USDT": {
+  "name": "先锋领航标普 500 ETF",
+  "market": "其他",
+  "tencent": "usVOO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JUSUNG_USDT": {
+  "name": "周星工程",
+  "market": "其他",
+  "tencent": "usJUSUNG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ZJINNOLIGHT_USDT": {
+  "name": "中际旭创 03308.HK",
+  "market": "A+H",
+  "aCode": "300308.SZ",
+  "tencent": "hk03308",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "SKDD_USDT": {
+  "name": "GraniteShares SK 海力士 2 倍做空日度 ETF",
+  "market": "其他",
+  "tencent": "usSKDD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LLY_USDT": {
+  "name": "礼来",
+  "market": "其他",
+  "tencent": "usLLY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CIEN_USDT": {
+  "name": "Ciena",
+  "market": "其他",
+  "tencent": "usCIEN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CRDO_USDT": {
+  "name": "默升科技",
+  "market": "其他",
+  "tencent": "usCRDO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GME_USDT": {
+  "name": "游戏驿站",
+  "market": "其他",
+  "tencent": "usGME",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SLVON_USDT": {
+  "name": "安硕白银信托",
+  "market": "其他",
+  "tencent": "usSLVON",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SPOT_USDT": {
+  "name": "斯波蒂菲",
+  "market": "其他",
+  "tencent": "usSPOT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "UVXY_USDT": {
+  "name": "恐慌指数 1.5 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usUVXY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SKUU_USDT": {
+  "name": "GraniteShares SK 海力士 2 倍做多日度 ETF",
+  "market": "其他",
+  "tencent": "usSKUU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "STRC_USDT": {
+  "name": "微策略 A 系列永续优先股",
+  "market": "其他",
+  "tencent": "usSTRC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "POLYMARKET_USDT": {
+  "name": "Polymarket",
+  "market": "其他",
+  "tencent": "usPOLYMARKET",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XLK_USDT": {
+  "name": "标普 500 科技行业 ETF",
+  "market": "其他",
+  "tencent": "usXLK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CRM_USDT": {
+  "name": "赛富时",
+  "market": "其他",
+  "tencent": "usCRM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ZHIPUHKD_USDT": {
+  "name": "智谱 02513.HK",
+  "market": "港股",
+  "tencent": "hk02513",
+  "mkt": "港股",
+  "cur": "HKD",
+  "unit": "HKD"
+ },
+ "SMIC_USDT": {
+  "name": "中芯国际 00981.HK",
+  "market": "A+H",
+  "aCode": "688981.SH",
+  "tencent": "hk00981",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "VRT_USDT": {
+  "name": "维谛技术",
+  "market": "其他",
+  "tencent": "usVRT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "QNTX_USDT": {
+  "name": "Quantinuum",
+  "market": "其他",
+  "tencent": "usQNTX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HPE_USDT": {
+  "name": "慧与科技",
+  "market": "其他",
+  "tencent": "usHPE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "RDW_USDT": {
+  "name": "瑞德威尔航天",
+  "market": "其他",
+  "tencent": "usRDW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KLAC_USDT": {
+  "name": "科磊公司",
+  "market": "其他",
+  "tencent": "usKLAC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "POPMART_USDT": {
+  "name": "泡泡玛特 09992.HK",
+  "market": "港股",
+  "tencent": "hk09992",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "FUTUON_USDT": {
+  "name": "富途",
+  "market": "其他",
+  "tencent": "usFUTUON",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MINIMAXHKD_USDT": {
+  "name": "MINIMAX-W 00100.HK",
+  "market": "港股",
+  "tencent": "hk00100",
+  "mkt": "港股",
+  "cur": "HKD",
+  "unit": "HKD"
+ },
+ "CMI_USDT": {
+  "name": "康明斯",
+  "market": "其他",
+  "tencent": "usCMI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XUNCE_USDT": {
+  "name": "迅策 03317.HK",
+  "market": "港股",
+  "tencent": "hk03317",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "ROK_USDT": {
+  "name": "罗克韦尔自动化",
+  "market": "其他",
+  "tencent": "usROK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CAMBRICON_USDT": {
+  "name": "寒武纪 688256.SH",
+  "market": "A股",
+  "tencent": "sh688256",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "FN_USDT": {
+  "name": "斐博朗",
+  "market": "其他",
+  "tencent": "usFN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "WMT_USDT": {
+  "name": "沃尔玛",
+  "market": "其他",
+  "tencent": "usWMT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JMKE_USDT": {
+  "name": "泽西迈克三明治",
+  "market": "其他",
+  "tencent": "usJMKE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MCD_USDT": {
+  "name": "麦当劳",
+  "market": "其他",
+  "tencent": "usMCD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CLS_USDT": {
+  "name": "天弘公司",
+  "market": "其他",
+  "tencent": "usCLS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PENG_USDT": {
+  "name": "企鹅解决",
+  "market": "其他",
+  "tencent": "usPENG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VCX_USDT": {
+  "name": "Fundrise Innovation Fund",
+  "market": "其他",
+  "tencent": "usVCX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BA_USDT": {
+  "name": "波音",
+  "market": "其他",
+  "tencent": "usBA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TSLL_USDT": {
+  "name": "Direxion 特斯拉 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usTSLL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HHGRACE_USDT": {
+  "name": "华虹宏力 01347.HK",
+  "market": "A+H",
+  "aCode": "688347.SH",
+  "tencent": "hk01347",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "SHLD_USDT": {
+  "name": "环球 X 国防科技 ETF",
+  "market": "其他",
+  "tencent": "usSHLD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PDD_USDT": {
+  "name": "拼多多",
+  "market": "其他",
+  "tencent": "usPDD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CSCO_USDT": {
+  "name": "思科",
+  "market": "其他",
+  "tencent": "usCSCO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XOM_USDT": {
+  "name": "埃克森美孚",
+  "market": "其他",
+  "tencent": "usXOM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MSFU_USDT": {
+  "name": "Direxion 微软 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usMSFU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LUNR_USDT": {
+  "name": "直觉机器",
+  "market": "其他",
+  "tencent": "usLUNR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TBT_USDT": {
+  "name": "ProShares 美债 20 年以上 2 倍做空 ETF",
+  "market": "其他",
+  "tencent": "usTBT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TWLO_USDT": {
+  "name": "特维利奥",
+  "market": "其他",
+  "tencent": "usTWLO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PANW_USDT": {
+  "name": "派拓网络",
+  "market": "其他",
+  "tencent": "usPANW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CGNX_USDT": {
+  "name": "康耐视",
+  "market": "其他",
+  "tencent": "usCGNX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SKSQUARE_USDT": {
+  "name": "SK Square",
+  "market": "其他",
+  "tencent": "usSKSQUARE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TMUS_USDT": {
+  "name": "美国 T-Mobile 移动电信",
+  "market": "其他",
+  "tencent": "usTMUS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EWZ_USDT": {
+  "name": "iShares 巴西指数 ETF",
+  "market": "其他",
+  "tencent": "usEWZ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FIX_USDT": {
+  "name": "美国舒适系统",
+  "market": "其他",
+  "tencent": "usFIX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "RIVN_USDT": {
+  "name": "里维安",
+  "market": "其他",
+  "tencent": "usRIVN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VOLX_USDT": {
+  "name": "波动率指数",
+  "market": "其他",
+  "tencent": "usVOLX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TENCENTHKD_USDT": {
+  "name": "腾讯控股 00700.HK",
+  "market": "港股",
+  "tencent": "hk00700",
+  "mkt": "港股",
+  "cur": "HKD",
+  "unit": "HKD"
+ },
+ "WEN_USDT": {
+  "name": "温蒂汉堡",
+  "market": "其他",
+  "tencent": "usWEN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "RDDTON_USDT": {
+  "name": "RDDTON",
+  "market": "其他",
+  "tencent": "usRDDTON",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GGLL_USDT": {
+  "name": "Direxion 谷歌 Alphabet 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usGGLL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "COST_USDT": {
+  "name": "好市多",
+  "market": "其他",
+  "tencent": "usCOST",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PAYP_USDT": {
+  "name": "PayPay",
+  "market": "其他",
+  "tencent": "usPAYP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EOPTOLINK_USDT": {
+  "name": "新易盛 300502.SZ",
+  "market": "A股",
+  "tencent": "sz300502",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "BWXT_USDT": {
+  "name": "BWX Technologies, Inc.",
+  "market": "其他",
+  "tencent": "usBWXT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XLE_USDT": {
+  "name": "标普能源行业 ETF",
+  "market": "其他",
+  "tencent": "usXLE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BX_USDT": {
+  "name": "黑石集团",
+  "market": "其他",
+  "tencent": "usBX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SPYM_USDT": {
+  "name": "道富 SPDR 投资组合标普 500 ETF",
+  "market": "其他",
+  "tencent": "usSPYM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MELI_USDT": {
+  "name": "美客多",
+  "market": "其他",
+  "tencent": "usMELI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MPWR_USDT": {
+  "name": "芯源系统",
+  "market": "其他",
+  "tencent": "usMPWR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VZ_USDT": {
+  "name": "威瑞森电信",
+  "market": "其他",
+  "tencent": "usVZ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IEIT_USDT": {
+  "name": "浪潮信息 000977.SZ",
+  "market": "A股",
+  "tencent": "sz000977",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "YOFC_USDT": {
+  "name": "长飞光纤光缆 06869.HK",
+  "market": "A+H",
+  "aCode": "601869.SH",
+  "tencent": "hk06869",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "V_USDT": {
+  "name": "维萨",
+  "market": "其他",
+  "tencent": "usV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NVDL_USDT": {
+  "name": "GraniteShares 英伟达 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usNVDL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NXT_USDT": {
+  "name": "Nextpower Inc.",
+  "market": "其他",
+  "tencent": "usNXT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "UNH_USDT": {
+  "name": "联合健康集团",
+  "market": "其他",
+  "tencent": "usUNH",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMGN_USDT": {
+  "name": "安进",
+  "market": "其他",
+  "tencent": "usAMGN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SMH_USDT": {
+  "name": "VanEck 半导体 ETF",
+  "market": "其他",
+  "tencent": "usSMH",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AAPU_USDT": {
+  "name": "Direxion 苹果 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usAAPU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GEV_USDT": {
+  "name": "通用电气韦诺瓦",
+  "market": "其他",
+  "tencent": "usGEV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MUFG_USDT": {
+  "name": "三菱日联金融集团",
+  "market": "其他",
+  "tencent": "usMUFG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NKE_USDT": {
+  "name": "耐克",
+  "market": "其他",
+  "tencent": "usNKE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KUAISHOU_USDT": {
+  "name": "快手 01024.HK",
+  "market": "港股",
+  "tencent": "hk01024",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "GE_USDT": {
+  "name": "通用电气航空航天",
+  "market": "其他",
+  "tencent": "usGE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AKESO_USDT": {
+  "name": "康方生物 09926.HK",
+  "market": "港股",
+  "tencent": "hk09926",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "EBAY_USDT": {
+  "name": "eBay",
+  "market": "其他",
+  "tencent": "usEBAY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JNJ_USDT": {
+  "name": "强生",
+  "market": "其他",
+  "tencent": "usJNJ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CMCSA_USDT": {
+  "name": "康卡斯特",
+  "market": "其他",
+  "tencent": "usCMCSA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BRKB_USDT": {
+  "name": "伯克希尔哈撒韦 B 类股",
+  "market": "其他",
+  "tencent": "usBRKB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "URNM_USDT": {
+  "name": "斯普罗特铀矿 ETF",
+  "market": "其他",
+  "tencent": "usURNM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMKR_USDT": {
+  "name": "安靠技术",
+  "market": "其他",
+  "tencent": "usAMKR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SYK_USDT": {
+  "name": "史赛克",
+  "market": "其他",
+  "tencent": "usSYK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "COP_USDT": {
+  "name": "康菲石油",
+  "market": "其他",
+  "tencent": "usCOP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LQD_USDT": {
+  "name": "美元投资级企业债 ETF",
+  "market": "其他",
+  "tencent": "usLQD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HD_USDT": {
+  "name": "家得宝",
+  "market": "其他",
+  "tencent": "usHD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HSBC_USDT": {
+  "name": "汇丰银行",
+  "market": "其他",
+  "tencent": "usHSBC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MCHP_USDT": {
+  "name": "微芯科技",
+  "market": "其他",
+  "tencent": "usMCHP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TMF_USDT": {
+  "name": "Direxion 美债 20 年以上 3 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usTMF",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LMT_USDT": {
+  "name": "洛克希德",
+  "market": "其他",
+  "tencent": "usLMT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SONY_USDT": {
+  "name": "索尼",
+  "market": "其他",
+  "tencent": "usSONY",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "APH_USDT": {
+  "name": "安费诺",
+  "market": "其他",
+  "tencent": "usAPH",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ASX_USDT": {
+  "name": "日月光控股",
+  "market": "其他",
+  "tencent": "usASX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SOFI_USDT": {
+  "name": "索菲科技",
+  "market": "其他",
+  "tencent": "usSOFI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CCJ_USDT": {
+  "name": "卡梅科公司",
+  "market": "其他",
+  "tencent": "usCCJ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ABBV_USDT": {
+  "name": "艾伯维",
+  "market": "其他",
+  "tencent": "usABBV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FOXA_USDT": {
+  "name": "福克斯集团 A 类股",
+  "market": "其他",
+  "tencent": "usFOXA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NEE_USDT": {
+  "name": "新纪元能源",
+  "market": "其他",
+  "tencent": "usNEE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BITO_USDT": {
+  "name": "ProShares 比特币策略 ETF",
+  "market": "其他",
+  "tencent": "usBITO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AMZU_USDT": {
+  "name": "Direxion 亚马逊 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usAMZU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EWT_USDT": {
+  "name": "安硕 MSCI 台湾 ETF",
+  "market": "其他",
+  "tencent": "usEWT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LENOVO_USDT": {
+  "name": "联想集团 00992.HK",
+  "market": "港股",
+  "tencent": "hk00992",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "STM_USDT": {
+  "name": "意法半导体",
+  "market": "其他",
+  "tencent": "usSTM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "METU_USDT": {
+  "name": "Direxion Meta 2 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usMETU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "WFC_USDT": {
+  "name": "富国银行",
+  "market": "其他",
+  "tencent": "usWFC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FSLR_USDT": {
+  "name": "第一太阳能公司",
+  "market": "其他",
+  "tencent": "usFSLR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "DDOG_USDT": {
+  "name": "Datadog Inc.",
+  "market": "其他",
+  "tencent": "usDDOG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BUD_USDT": {
+  "name": "百威英博",
+  "market": "其他",
+  "tencent": "usBUD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SCHW_USDT": {
+  "name": "嘉信理财",
+  "market": "其他",
+  "tencent": "usSCHW",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PEP_USDT": {
+  "name": "百事",
+  "market": "其他",
+  "tencent": "usPEP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JDON_USDT": {
+  "name": "京东",
+  "market": "其他",
+  "tencent": "usJDON",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XLF_USDT": {
+  "name": "标普 500 金融行业 ETF",
+  "market": "其他",
+  "tencent": "usXLF",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "RTX_USDT": {
+  "name": "雷神",
+  "market": "其他",
+  "tencent": "usRTX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ALB_USDT": {
+  "name": "美国雅保",
+  "market": "其他",
+  "tencent": "usALB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "INFQ_USDT": {
+  "name": "Infleqtion",
+  "market": "其他",
+  "tencent": "usINFQ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "LIN_USDT": {
+  "name": "林德集团",
+  "market": "其他",
+  "tencent": "usLIN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HPSP_USDT": {
+  "name": "HPSP",
+  "market": "其他",
+  "tencent": "usHPSP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KO_USDT": {
+  "name": "可口可乐",
+  "market": "其他",
+  "tencent": "usKO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CEG_USDT": {
+  "name": "星座能源集团",
+  "market": "其他",
+  "tencent": "usCEG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ISRG_USDT": {
+  "name": "直觉外科",
+  "market": "其他",
+  "tencent": "usISRG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ADSK_USDT": {
+  "name": "欧特克",
+  "market": "其他",
+  "tencent": "usADSK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XBI_USDT": {
+  "name": "道富标普生物科技 ETF",
+  "market": "其他",
+  "tencent": "usXBI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TZA_USDT": {
+  "name": "Direxion 罗素 2000 小盘 3 倍做空 ETF",
+  "market": "其他",
+  "tencent": "usTZA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MEITUAN_USDT": {
+  "name": "美团 03690.HK",
+  "market": "港股",
+  "tencent": "hk03690",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "KBLAM_USDT": {
+  "name": "建滔积层板 01888.HK",
+  "market": "港股",
+  "tencent": "hk01888",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "DKNG_USDT": {
+  "name": "DraftKings",
+  "market": "其他",
+  "tencent": "usDKNG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ZIJINMINING_USDT": {
+  "name": "紫金矿业 02899.HK",
+  "market": "港股",
+  "tencent": "hk02899",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "BSX_USDT": {
+  "name": "波士顿科学",
+  "market": "其他",
+  "tencent": "usBSX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "EEM_USDT": {
+  "name": "安硕 MSCI 新兴市场 ETF",
+  "market": "其他",
+  "tencent": "usEEM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MRK_USDT": {
+  "name": "默沙东",
+  "market": "其他",
+  "tencent": "usMRK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ADI_USDT": {
+  "name": "亚德诺半导体",
+  "market": "其他",
+  "tencent": "usADI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GD_USDT": {
+  "name": "通用动力",
+  "market": "其他",
+  "tencent": "usGD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CVS_USDT": {
+  "name": "西维斯健康",
+  "market": "其他",
+  "tencent": "usCVS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CATL_USDT": {
+  "name": "宁德时代 03750.HK",
+  "market": "A+H",
+  "aCode": "300750.SZ",
+  "tencent": "hk03750",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "FCX_USDT": {
+  "name": "麦克莫兰铜矿",
+  "market": "其他",
+  "tencent": "usFCX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PYPL_USDT": {
+  "name": "PayPal 控股",
+  "market": "其他",
+  "tencent": "usPYPL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "DEEPTECH_USDT": {
+  "name": "滴普科技 01384.HK",
+  "market": "港股",
+  "tencent": "hk01384",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "CCL_USDT": {
+  "name": "嘉年华邮轮",
+  "market": "其他",
+  "tencent": "usCCL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MAR_USDT": {
+  "name": "万豪国际",
+  "market": "其他",
+  "tencent": "usMAR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BAC_USDT": {
+  "name": "美国银行",
+  "market": "其他",
+  "tencent": "usBAC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SO_USDT": {
+  "name": "南方电力",
+  "market": "其他",
+  "tencent": "usSO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SBP_USDT": {
+  "name": "中国生物制药 01177.HK",
+  "market": "港股",
+  "tencent": "hk01177",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "DIS_USDT": {
+  "name": "迪士尼",
+  "market": "其他",
+  "tencent": "usDIS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CARR_USDT": {
+  "name": "开利全球公司",
+  "market": "其他",
+  "tencent": "usCARR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MDB_USDT": {
+  "name": "MongoDB Inc.",
+  "market": "其他",
+  "tencent": "usMDB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "INTU_USDT": {
+  "name": "财捷集团",
+  "market": "其他",
+  "tencent": "usINTU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "XLU_USDT": {
+  "name": "公用事业行业 ETF",
+  "market": "其他",
+  "tencent": "usXLU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IBIT_USDT": {
+  "name": "贝莱德比特币现货 ETF",
+  "market": "其他",
+  "tencent": "usIBIT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TLT_USDT": {
+  "name": "安硕 20+ 年期美国公债 ETF",
+  "market": "其他",
+  "tencent": "usTLT",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NOC_USDT": {
+  "name": "诺斯罗普格鲁曼",
+  "market": "其他",
+  "tencent": "usNOC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IBB_USDT": {
+  "name": "安硕纳斯达克生物科技 ETF",
+  "market": "其他",
+  "tencent": "usIBB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GLD_USDT": {
+  "name": "SPDR 黄金现货 ETF",
+  "market": "其他",
+  "tencent": "usGLD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BOTZ_USDT": {
+  "name": "Global X 机器人与人工智能 ETF",
+  "market": "其他",
+  "tencent": "usBOTZ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AAL_USDT": {
+  "name": "美国航空",
+  "market": "其他",
+  "tencent": "usAAL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "COF_USDT": {
+  "name": "第一资本金融",
+  "market": "其他",
+  "tencent": "usCOF",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KWEB_USDT": {
+  "name": "金瑞中证互联网 ETF",
+  "market": "其他",
+  "tencent": "usKWEB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TRAHK_USDT": {
+  "name": "盈富基金",
+  "market": "其他",
+  "tencent": "usTRAHK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IVV_USDT": {
+  "name": "安硕核心标普 500 ETF",
+  "market": "其他",
+  "tencent": "usIVV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PFE_USDT": {
+  "name": "辉瑞制药",
+  "market": "其他",
+  "tencent": "usPFE",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "APD_USDT": {
+  "name": "空气产品公司",
+  "market": "其他",
+  "tencent": "usAPD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CPNG_USDT": {
+  "name": "库鹏集团",
+  "market": "其他",
+  "tencent": "usCPNG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ANET_USDT": {
+  "name": "Arista 网络",
+  "market": "其他",
+  "tencent": "usANET",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TM_USDT": {
+  "name": "丰田汽车",
+  "market": "其他",
+  "tencent": "usTM",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "IEFA_USDT": {
+  "name": "安硕 MSCI 核心欧澳远东 ETF",
+  "market": "其他",
+  "tencent": "usIEFA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AGG_USDT": {
+  "name": "安硕美国核心综合债券 ETF",
+  "market": "其他",
+  "tencent": "usAGG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "FII_USDT": {
+  "name": "工业富联 601138.SH",
+  "market": "A股",
+  "tencent": "sh601138",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "GEELY_USDT": {
+  "name": "吉利汽车 00175.HK",
+  "market": "港股",
+  "tencent": "hk00175",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "ABNB_USDT": {
+  "name": "爱彼迎",
+  "market": "其他",
+  "tencent": "usABNB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TTWO_USDT": {
+  "name": "Take-Two 互动软件",
+  "market": "其他",
+  "tencent": "usTTWO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GS_USDT": {
+  "name": "高盛集团",
+  "market": "其他",
+  "tencent": "usGS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PG_USDT": {
+  "name": "宝洁",
+  "market": "其他",
+  "tencent": "usPG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KALSHI_USDT": {
+  "name": "Kalshi",
+  "market": "其他",
+  "tencent": "usKALSHI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BKNG_USDT": {
+  "name": "缤客控股",
+  "market": "其他",
+  "tencent": "usBKNG",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BYD_USDT": {
+  "name": "比亚迪 01211.HK",
+  "market": "港股",
+  "tencent": "hk01211",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "XLV_USDT": {
+  "name": "SPDR 医疗保健行业 ETF",
+  "market": "其他",
+  "tencent": "usXLV",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "JCI_USDT": {
+  "name": "江森自控",
+  "market": "其他",
+  "tencent": "usJCI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ACN_USDT": {
+  "name": "埃森哲",
+  "market": "其他",
+  "tencent": "usACN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NAURA_USDT": {
+  "name": "北方华创 002371.SZ",
+  "market": "A股",
+  "tencent": "sz002371",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "CITIC_USDT": {
+  "name": "中信股份 00267.HK",
+  "market": "港股",
+  "tencent": "hk00267",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "TJX_USDT": {
+  "name": "TJX 折扣零售集团",
+  "market": "其他",
+  "tencent": "usTJX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GILD_USDT": {
+  "name": "吉利德科学",
+  "market": "其他",
+  "tencent": "usGILD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ANTA_USDT": {
+  "name": "安踏体育 02020.HK",
+  "market": "港股",
+  "tencent": "hk02020",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "AMEC_USDT": {
+  "name": "中微公司 688012.SH",
+  "market": "A股",
+  "tencent": "sh688012",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "ANDURIL_USDT": {
+  "name": "Anduril",
+  "market": "其他",
+  "tencent": "usANDURIL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "ROKU_USDT": {
+  "name": "Roku",
+  "market": "其他",
+  "tencent": "usROKU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SHOP_USDT": {
+  "name": "Shopify",
+  "market": "其他",
+  "tencent": "usSHOP",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "DFDVX_USDT": {
+  "name": "维度国际价值 ETF",
+  "market": "其他",
+  "tencent": "usDFDVX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BLUEFOCUS_USDT": {
+  "name": "蓝色光标 300058.SZ",
+  "market": "A股",
+  "tencent": "sz300058",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "CMOC_USDT": {
+  "name": "洛阳钼业 603993.SH",
+  "market": "A股",
+  "tencent": "sh603993",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "MONTAGE_USDT": {
+  "name": "澜起科技 688008.SH",
+  "market": "A股",
+  "tencent": "sh688008",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "SUNAC_USDT": {
+  "name": "融创中国 01918.HK",
+  "market": "港股",
+  "tencent": "hk01918",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "BTGOON_USDT": {
+  "name": "BitGo Holdings Ondo Tokenized",
+  "market": "其他",
+  "tencent": "usBTGOON",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SUNGROW_USDT": {
+  "name": "阳光电源 300274.SZ",
+  "market": "A股",
+  "tencent": "sz300274",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "NEURALINK_USDT": {
+  "name": "Neuralink 神经链接",
+  "market": "其他",
+  "tencent": "usNEURALINK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "AAOI_USDT": {
+  "name": "应用光电",
+  "market": "其他",
+  "tencent": "usAAOI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "COHR_USDT": {
+  "name": "相干公司",
+  "market": "其他",
+  "tencent": "usCOHR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HYUNDAI_USDT": {
+  "name": "现代汽车",
+  "market": "其他",
+  "tencent": "usHYUNDAI",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KBHLD_USDT": {
+  "name": "KB Holdings",
+  "market": "其他",
+  "tencent": "usKBHLD",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "KORU_USDT": {
+  "name": "Direxion MSCI 韩国 3 倍做多 ETF",
+  "market": "其他",
+  "tencent": "usKORU",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MVLL_USDT": {
+  "name": "MicroVision",
+  "market": "其他",
+  "tencent": "usMVLL",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "PLTRX_USDT": {
+  "name": "Palantir",
+  "market": "其他",
+  "tencent": "usPLTRX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SHAZ_USDT": {
+  "name": "莎伦 AI 控股",
+  "market": "其他",
+  "tencent": "usSHAZ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SQQQ_USDT": {
+  "name": "三倍做空纳斯达克 100 ETF",
+  "market": "其他",
+  "tencent": "usSQQQ",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "TMO_USDT": {
+  "name": "赛默飞世尔",
+  "market": "其他",
+  "tencent": "usTMO",
+  "mkt": "美股",
+  "cur": "USD"
+ }
+}

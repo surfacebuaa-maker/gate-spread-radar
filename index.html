@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gate 股票合约 × 真实市场 开平仓价差监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">价差雷达</div>
+    <div class="title-wrap">
+      <h1>Gate × 真实市场 · 开平仓价差监控</h1>
+      <div class="subtitle">合约盘口 vs A股·港股·美股盘口 · 实时捕捉跨市场定价偏差</div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="themeBtn" class="btn ghost" title="切换明暗主题">◐</button>
+    <button id="notifyBtn" class="btn ghost" title="开启浏览器通知">🔔 通知</button>
+    <button id="refreshBtn" class="btn primary">刷新</button>
+  </div>
+</header>
+
+<section class="stats" id="statsBar">
+  <div class="stat-card"><div class="stat-label">监控合约</div><div class="stat-value" id="statCount">—</div><div class="stat-note" id="statCountNote">当前视图</div></div>
+  <div class="stat-card warn"><div class="stat-label">最大开仓差价</div><div class="stat-value" id="statOpen">—</div><div class="stat-note" id="statOpenNote">买市场 · 卖Gate</div></div>
+  <div class="stat-card warn"><div class="stat-label">最大清仓差价</div><div class="stat-value" id="statClose">—</div><div class="stat-note" id="statCloseNote">卖市场 · 买Gate</div></div>
+  <div class="stat-card danger"><div class="stat-label">开仓机会</div><div class="stat-value" id="statOver">—</div><div class="stat-note" id="statOverNote">开仓差价 ≥ 1.00%</div></div>
+  <div class="stat-card live"><div class="stat-label">数据状态</div><div class="stat-value" id="statStatus">连接中…</div><div class="stat-note" id="statTime">—</div></div>
+</section>
+
+<section class="toolbar">
+  <div class="seg" id="viewSeg">
+    <button data-view="ashare" class="seg-btn active">中国 A 股 <span class="cnt" id="cntAshare"></span></button>
+    <button data-view="hk" class="seg-btn">港股 <span class="cnt" id="cntHk"></span></button>
+    <button data-view="all" class="seg-btn">全部股票 <span class="cnt" id="cntAll"></span></button>
+  </div>
+  <div class="tool-right">
+    <input id="searchInput" type="search" placeholder="搜索合约 / 名称 / 代码…" autocomplete="off">
+    <label class="inline-label">机会阈值
+      <select id="thresholdSel">
+        <option value="0.5">0.5%</option>
+        <option value="1" selected>1%</option>
+        <option value="2">2%</option>
+        <option value="3">3%</option>
+        <option value="5">5%</option>
+      </select>
+    </label>
+    <label class="inline-label">刷新
+      <select id="intervalSel">
+        <option value="3">3s</option>
+        <option value="5">5s</option>
+        <option value="10" selected>10s</option>
+        <option value="30">30s</option>
+        <option value="60">60s</option>
+      </select>
+    </label>
+    <label class="switch" title="自动刷新开关">
+      <input type="checkbox" id="autoRefresh" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+</section>
+
+<div id="alertBanner" class="alert-banner hidden"></div>
+
+<section class="table-wrap">
+  <table id="spreadTable">
+    <thead>
+      <tr>
+        <th data-key="symbol">合约</th>
+        <th data-key="name">名称</th>
+        <th data-key="mktBid" class="num">市场买一 <span class="dim2" id="fxNote"></span></th>
+        <th data-key="mktAsk" class="num">市场卖一 <span class="dim2">USDT</span></th>
+        <th data-key="bid" class="num">Gate买一</th>
+        <th data-key="ask" class="num">Gate卖一</th>
+        <th data-key="openArbPct" class="num arb-col">开仓差价 <span class="dim2">Gate买一−市场买一</span></th>
+        <th data-key="closeArbPct" class="num arb-col">清仓差价 <span class="dim2">Gate卖一−市场卖一</span></th>
+        <th data-key="chg" class="num">24h 涨跌</th>
+        <th data-key="vol" class="num">24h 成交额</th>
+        <th data-key="oi" class="num">持仓量</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr><td colspan="11" class="loading-row">正在加载数据…</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="foot">
+  <span>数据来源：Gate.io 合约盘口（highest_bid / lowest_ask，USDT）＋ 腾讯行情（A股/港股实时盘口、美股最新价，已按汇率换算 USDT）＋ open.er-api.com 汇率</span>
+  <span class="dim">策略：Gate 溢价收敛（买市场 + 卖 Gate）。开仓差价 = Gate买一 − 市场买一（&gt;0 开仓信号）；清仓差价 = Gate卖一 − 市场卖一（&gt;0 表示 Gate 仍有溢价、平仓不划算；收敛至 ≤0 为平仓时机）· 价差需覆盖手续费与滑点，数据仅供研究，不构成投资建议</span>
+</footer>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
