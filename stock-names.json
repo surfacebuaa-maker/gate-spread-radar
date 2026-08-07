@@ -114,7 +114,7 @@
  "CRCLX_USDT": {
   "name": "Circle",
   "market": "其他",
-  "tencent": "usCRCLX",
+  "tencent": "usCRCL",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -149,7 +149,7 @@
  "MSTRX_USDT": {
   "name": "微策略",
   "market": "其他",
-  "tencent": "usMSTRX",
+  "tencent": "usMSTR",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -170,7 +170,7 @@
  "TSLAX_USDT": {
   "name": "特斯拉",
   "market": "其他",
-  "tencent": "usTSLAX",
+  "tencent": "usTSLA",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -191,7 +191,7 @@
  "GOOGLX_USDT": {
   "name": "谷歌",
   "market": "其他",
-  "tencent": "usGOOGLX",
+  "tencent": "usGOOGL",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -233,14 +233,14 @@
  "AAPLX_USDT": {
   "name": "苹果",
   "market": "其他",
-  "tencent": "usAAPLX",
+  "tencent": "usAAPL",
   "mkt": "美股",
   "cur": "USD"
  },
  "AMZNX_USDT": {
   "name": "亚马逊",
   "market": "其他",
-  "tencent": "usAMZNX",
+  "tencent": "usAMZN",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -268,7 +268,7 @@
  "NVDAX_USDT": {
   "name": "英伟达",
   "market": "其他",
-  "tencent": "usNVDAX",
+  "tencent": "usNVDA",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -296,14 +296,14 @@
  "ORCLX_USDT": {
   "name": "甲骨文",
   "market": "其他",
-  "tencent": "usORCLX",
+  "tencent": "usORCL",
   "mkt": "美股",
   "cur": "USD"
  },
  "TQQQX_USDT": {
   "name": "三倍做多纳斯达克 100 ETF",
   "market": "其他",
-  "tencent": "usTQQQX",
+  "tencent": "usTQQQ",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -317,7 +317,7 @@
  "COINX_USDT": {
   "name": "币基",
   "market": "其他",
-  "tencent": "usCOINX",
+  "tencent": "usCOIN",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -408,7 +408,7 @@
  "HOODX_USDT": {
   "name": "罗宾汉",
   "market": "其他",
-  "tencent": "usHOODX",
+  "tencent": "usHOOD",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -798,7 +798,7 @@
  "QNTX_USDT": {
   "name": "Quantinuum",
   "market": "其他",
-  "tencent": "usQNTX",
+  "tencent": "usQNT",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -833,7 +833,7 @@
  "FUTUON_USDT": {
   "name": "富途",
   "market": "其他",
-  "tencent": "usFUTUON",
+  "tencent": "usFUTU",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -1285,7 +1285,7 @@
  "BRKB_USDT": {
   "name": "伯克希尔哈撒韦 B 类股",
   "market": "其他",
-  "tencent": "usBRKB",
+  "tencent": "usBRK.B",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -1502,7 +1502,7 @@
  "JDON_USDT": {
   "name": "京东",
   "market": "其他",
-  "tencent": "usJDON",
+  "tencent": "usJD",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -2035,7 +2035,7 @@
  "DFDVX_USDT": {
   "name": "维度国际价值 ETF",
   "market": "其他",
-  "tencent": "usDFDVX",
+  "tencent": "usDFDV",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -2133,7 +2133,7 @@
  "PLTRX_USDT": {
   "name": "Palantir",
   "market": "其他",
-  "tencent": "usPLTRX",
+  "tencent": "usPLTR",
   "mkt": "美股",
   "cur": "USD"
  },

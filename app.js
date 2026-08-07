@@ -284,7 +284,7 @@ async function fetchMarketQuotes() {
       const buf = await res.arrayBuffer();
       const text = new TextDecoder('gbk').decode(buf);
       for (const line of text.split(';')) {
-        const m = line.trim().match(/^v_(\w+)="(.*)"$/);
+        const m = line.trim().match(/^v_([\w.]+)="(.*)"$/);
         if (!m) continue;
         const parts = m[2].split('~');
         if (parts.length < 33 || !parts[0]) continue;
@@ -463,7 +463,7 @@ function renderTable() {
     const approxTip = r.mktApprox ? ' <span class="dim" title="非交易时段或美股无盘口，取最新价近似">≈</span>' : '';
     const mktBidCell = r.mktBid !== null
       ? `<td class="num">${fmt(r.mktBid)}${approxTip}</td><td class="num">${fmt(r.mktAsk)}${approxTip}</td>`
-      : '<td class="num nodepth" colspan="2">无对标行情</td>';
+      : '<td class="num nodepth" colspan="2" title="腾讯行情无此标的（未上市/非 A股·港股·美股上市）">无对标行情</td>';
     const depthCell = r.spread === null
       ? '<td class="num nodepth">—</td><td class="num nodepth">—</td>'
       : `<td class="num">${fmt(r.bid)}</td><td class="num">${fmt(r.ask)}</td>`;
