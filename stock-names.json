@@ -2157,5 +2157,152 @@
   "tencent": "usTMO",
   "mkt": "美股",
   "cur": "USD"
+ },
+ "BOE_USDT": {
+  "name": "京东方A 000725.SZ",
+  "market": "A股",
+  "tencent": "sz000725",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "CCTC_USDT": {
+  "name": "三环集团 300408.SZ",
+  "market": "A股",
+  "tencent": "sz300408",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "CJS_USDT": {
+  "name": "中国巨石 600176.SH",
+  "market": "A股",
+  "tencent": "sh600176",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "DSBJ_USDT": {
+  "name": "东山精密 002384.SZ",
+  "market": "A股",
+  "tencent": "sz002384",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "FENGHUA_USDT": {
+  "name": "风华高科 000636.SZ",
+  "market": "A股",
+  "tencent": "sz000636",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "HTGD_USDT": {
+  "name": "华天科技 002185.SZ",
+  "market": "A股",
+  "tencent": "sz002185",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "KIOXIA_USDT": {
+  "name": "铠侠 285A.T",
+  "market": "其他",
+  "tencent": "",
+  "mkt": null,
+  "cur": "USD"
+ },
+ "LETTALL_USDT": {
+  "name": "利通电子 603629.SH",
+  "market": "A股",
+  "tencent": "sh603629",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "LONGSYS_USDT": {
+  "name": "江波龙 301308.SZ",
+  "market": "A股",
+  "tencent": "sz301308",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "LUXSHARE_USDT": {
+  "name": "立讯精密 002475.SZ",
+  "market": "A股",
+  "tencent": "sz002475",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "PERIC_USDT": {
+  "name": "中船特气 688146.SH",
+  "market": "A股",
+  "tencent": "sh688146",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "SHTECH_USDT": {
+  "name": "胜宏科技 300476.SZ",
+  "market": "A股",
+  "tencent": "sz300476",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "SINOCERA_USDT": {
+  "name": "国瓷材料 300285.SZ",
+  "market": "A股",
+  "tencent": "sz300285",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "SYTECH_USDT": {
+  "name": "生益科技 600183.SH",
+  "market": "A股",
+  "tencent": "sh600183",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "TFC_USDT": {
+  "name": "天孚通信 300394.SZ",
+  "market": "A股",
+  "tencent": "sz300394",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "TFME_USDT": {
+  "name": "通富微电 002156.SZ",
+  "market": "A股",
+  "tencent": "sz002156",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "TUNGSTEN_USDT": {
+  "name": "中钨高新 000657.SZ",
+  "market": "A股",
+  "tencent": "sz000657",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "UNIS_USDT": {
+  "name": "紫光股份 000938.SZ",
+  "market": "A股",
+  "tencent": "sz000938",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "WUXIAPPTEC_USDT": {
+  "name": "药明康德 603259.SH",
+  "market": "A股",
+  "tencent": "sh603259",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "YJTECH_USDT": {
+  "name": "源杰科技 688498.SH",
+  "market": "A股",
+  "tencent": "sh688498",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "ZTT_USDT": {
+  "name": "中天科技 600522.SH",
+  "market": "A股",
+  "tencent": "sh600522",
+  "mkt": "A股",
+  "cur": "CNY"
  }
 }
