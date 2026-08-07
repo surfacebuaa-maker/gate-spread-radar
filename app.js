@@ -19,6 +19,12 @@
 
 const $ = (id) => document.getElementById(id);
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n)) ? '—' : Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmtVol = (v) => {
+  if (v === null || v === undefined || isNaN(v)) return '—';
+  if (v >= 1e8) return (v / 1e8).toFixed(2) + '亿';
+  if (v >= 1e4) return (v / 1e4).toFixed(1) + '万';
+  return fmt(v, 0);
+};
 
 const WS_URL = 'wss://fx-ws.gateio.ws/v4/ws/usdt/';
 const WS_SUB_BATCH = 100;
@@ -449,7 +455,9 @@ function renderTable() {
   tbody.innerHTML = rows.map((r) => {
     const badge = BADGE_CLASS[r.market]
       ? `<span class="badge ${BADGE_CLASS[r.market]}" title="${r.market === 'A股' ? 'A股代码 ' + r.aCode : r.market === '港股' ? '港股代码 ' + r.hkCode : ''}">${BADGE_TEXT[r.market]}</span>` : '';
-    const mktBadge = r.mktMkt ? `<span class="badge ${r.mktMkt === 'A股' ? 'ashare' : r.mktMkt === '港股' ? 'hk' : 'us'}">${MKT_TEXT[r.mktMkt]}</span>` : '';
+    // 与合约市场徽章相同时去重（如 A股 合约不再重复显示两个「A股」）
+    const mktBadge = r.mktMkt && r.mktMkt !== r.market
+      ? `<span class="badge ${r.mktMkt === 'A股' ? 'ashare' : r.mktMkt === '港股' ? 'hk' : 'us'}">${MKT_TEXT[r.mktMkt]}</span>` : '';
     const premBadge = r.prem !== null && Math.abs(r.prem) >= 0.3
       ? `<span class="prem ${r.prem > 0 ? 'prem-up' : 'prem-down'}" title="Gate 中间价相对市场${r.prem > 0 ? '溢价' : '折价'}">${r.prem > 0 ? '溢' : '折'}${fmt(Math.abs(r.prem))}%</span>` : '';
     const approxTip = r.mktApprox ? ' <span class="dim" title="非交易时段或美股无盘口，取最新价近似">≈</span>' : '';
@@ -468,7 +476,7 @@ function renderTable() {
       ${arbCell(r.openArb, r.openArbPct)}
       ${arbCellPlain(r.closeArb, r.closeArbPct)}
       <td class="num ${chgCls}">${r.chg > 0 ? '+' : ''}${fmt(r.chg, 2)}%</td>
-      <td class="num">${r.vol >= 10000 ? fmt(r.vol / 10000, 1) + '万' : fmt(r.vol, 0)}</td>
+      <td class="num" title="24h 成交额（USDT）">${fmtVol(r.vol)}</td>
       <td class="num">${fmt(r.oi, 0)}</td>
     </tr>`;
   }).join('');
@@ -505,6 +513,7 @@ function renderAlerts() {
 /* ---------------- 事件绑定 ---------------- */
 
 function bindEvents() {
+  syncSortIndicator();
   $('viewSeg').addEventListener('click', (e) => {
     const btn = e.target.closest('.seg-btn');
     if (!btn || state.view === btn.dataset.view) return;
@@ -555,13 +564,7 @@ function bindEvents() {
       const k = th.dataset.key;
       if (state.sortKey === k) state.sortDir *= -1;
       else { state.sortKey = k; state.sortDir = -1; }
-      document.querySelectorAll('thead th').forEach((x) => x.classList.remove('sorted'));
-      th.classList.add('sorted');
-      th.querySelector('.arrow')?.remove();
-      const span = document.createElement('span');
-      span.className = 'arrow';
-      span.textContent = state.sortDir === -1 ? '▼' : '▲';
-      th.appendChild(span);
+      syncSortIndicator();
       render();
     });
   });
@@ -569,6 +572,19 @@ function bindEvents() {
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden && state.mode === 'ws' && (!wsState.ws || wsState.ws.readyState !== WebSocket.OPEN)) connectWS();
   });
+}
+
+function syncSortIndicator() {
+  document.querySelectorAll('thead th').forEach((x) => x.classList.remove('sorted'));
+  document.querySelectorAll('thead th .arrow').forEach((a) => a.remove());
+  const th = document.querySelector('thead th[data-key="' + state.sortKey + '"]');
+  if (th) {
+    th.classList.add('sorted');
+    const span = document.createElement('span');
+    span.className = 'arrow';
+    span.textContent = state.sortDir === -1 ? '▼' : '▲';
+    th.appendChild(span);
+  }
 }
 
 function restartTimer() {
