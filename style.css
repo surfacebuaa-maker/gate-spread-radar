@@ -139,10 +139,11 @@ select {
 /* ============ 表格 ============ */
 .table-wrap { padding: 0 24px 20px; overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
+thead { position: static; }
 thead th {
   text-align: left; font-size: 12px; color: var(--text-dim); font-weight: 500;
   padding: 10px 12px; border-bottom: 1px solid var(--border);
-  background: var(--bg-panel); position: sticky; top: calc(var(--topbar-h, 76px) - 1px); z-index: 5;
+  background: var(--bg-panel); position: static;
   white-space: nowrap; cursor: pointer; user-select: none;
 }
 thead th.num { text-align: right; }
