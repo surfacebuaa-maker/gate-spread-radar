@@ -56,9 +56,9 @@
   "cur": "USD"
  },
  "METAX_USDT": {
-  "name": "元宇宙",
+  "name": "Meta（META）",
   "market": "其他",
-  "tencent": "usMETAX",
+  "tencent": "usMETA",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -133,9 +133,9 @@
   "cur": "USD"
  },
  "QQQX_USDT": {
-  "name": "纳斯达克 100 指数 ETF",
+  "name": "纳斯达克 100 指数 ETF（QQQ）",
   "market": "其他",
-  "tencent": "usQQQX",
+  "tencent": "usQQQ",
   "mkt": "美股",
   "cur": "USD"
  },
@@ -196,9 +196,9 @@
   "cur": "USD"
  },
  "SPYX_USDT": {
-  "name": "标普 500",
+  "name": "标普 500 ETF（SPY）",
   "market": "其他",
-  "tencent": "usSPYX",
+  "tencent": "usSPY",
   "mkt": "美股",
   "cur": "USD"
  },
