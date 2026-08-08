@@ -471,10 +471,10 @@ function renderTable() {
     return `<tr data-symbol="${r.contract}"${r.fresh ? ' class="flash-new"' : ''}>
       <td class="symbol">${r.contract.replace('_USDT', '')}<span class="dim">/USDT</span></td>
       <td class="name">${r.name}${badge}${mktBadge}${premBadge}</td>
-      ${mktBidCell}
-      ${depthCell}
       ${arbCell(r.openArb, r.openArbPct)}
       ${arbCellPlain(r.closeArb, r.closeArbPct)}
+      ${mktBidCell}
+      ${depthCell}
       <td class="num ${chgCls}">${r.chg > 0 ? '+' : ''}${fmt(r.chg, 2)}%</td>
       <td class="num" title="24h 成交额（USDT）">${fmtVol(r.vol)}</td>
       <td class="num">${fmt(r.oi, 0)}</td>
