@@ -53,9 +53,11 @@ const state = {
 
 /* ---------------- 市场行情状态 ---------------- */
 const marketState = {
-  quotes: new Map(),   // tencentCode -> {bid, ask, last, chg, time, cur}
+  quotes: new Map(),   // tencentCode -> {bid, ask, last, chg, time, approx}
   fx: { CNY: null, HKD: null, fetchedAt: 0 },
   fxTimer: null,
+  loading: false,
+  queued: false,
 };
 
 /* ---------------- 模式探测 ---------------- */
@@ -275,31 +277,65 @@ function fxRate(cur) {
 }
 
 async function fetchMarketQuotes() {
-  const codes = currentViewTencentCodes();
+  if (marketState.loading) {
+    marketState.queued = true;
+    return;
+  }
+  const codes = [...new Set(currentViewTencentCodes())];
   if (!codes.length) return;
+  marketState.loading = true;
   try {
+    const batches = [];
     for (let i = 0; i < codes.length; i += TENCENT_BATCH) {
-      const batch = codes.slice(i, i + TENCENT_BATCH);
-      const res = await fetch(TENCENT_URL + batch.join(','));
-      const buf = await res.arrayBuffer();
-      const text = new TextDecoder('gbk').decode(buf);
+      batches.push(codes.slice(i, i + TENCENT_BATCH));
+    }
+    const results = await Promise.allSettled(batches.map(async (batch) => {
+      const ctrl = new AbortController();
+      const timeout = setTimeout(() => ctrl.abort(), 6000);
+      try {
+        const res = await fetch(TENCENT_URL + batch.join(','), { signal: ctrl.signal });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const buf = await res.arrayBuffer();
+        return new TextDecoder('gbk').decode(buf);
+      } finally {
+        clearTimeout(timeout);
+      }
+    }));
+    for (const result of results) {
+      if (result.status !== 'fulfilled') {
+        console.warn('市场行情批次获取失败', result.reason);
+        continue;
+      }
+      const text = result.value;
       for (const line of text.split(';')) {
         const m = line.trim().match(/^v_([\w.]+)="(.*)"$/);
         if (!m) continue;
         const parts = m[2].split('~');
         if (parts.length < 33 || !parts[0]) continue;
+        const last = parseFloat(parts[3]);
+        const rawBid = parseFloat(parts[9]);
+        const rawAsk = parseFloat(parts[19]);
+        if (!isFinite(last) || last <= 0) continue;
         marketState.quotes.set(m[1], {
-          last: parseFloat(parts[3]),
-          bid: parseFloat(parts[9]),
-          ask: parseFloat(parts[19]),
+          last,
+          // 收盘或盘口为空时，用最新价作为近似值，避免整只股票显示无行情。
+          bid: rawBid > 0 ? rawBid : last,
+          ask: rawAsk > 0 ? rawAsk : last,
           chg: parseFloat(parts[32]),
           time: parts[30],
+          approx: rawBid <= 0 || rawAsk <= 0,
         });
       }
     }
     render();
   } catch (e) {
     console.error('市场行情获取失败', e);
+  } finally {
+    marketState.loading = false;
+    if (marketState.queued) {
+      marketState.queued = false;
+      fetchMarketQuotes();
+    }
   }
 }
 
@@ -339,7 +375,7 @@ function tickerToRow(contract, t, fresh) {
         const mBid = q.bid * fx, mAsk = q.ask * fx;
         mkt = {
           bid: mBid, ask: mAsk,
-          approx: info2.mkt === '美股' || q.bid === q.ask,
+          approx: info2.mkt === '美股' || q.approx || q.bid === q.ask,
           time: q.time,
           last: q.last, cur: info2.cur || 'USD',
         };
@@ -427,7 +463,9 @@ function renderStats() {
   const opp = withMkt.filter((r) => r.openArbPct !== null && r.openArbPct >= state.threshold);
   $('statOver').textContent = opp.length;
   $('statOverNote').textContent = '开仓差价 ≥ ' + state.threshold.toFixed(2) + '%';
-  $('fxNote').textContent = marketState.fx.CNY ? `USD/CNY ${marketState.fx.CNY.toFixed(3)}·HKD ${marketState.fx.HKD.toFixed(3)}` : 'USDT';
+  $('fxNote').textContent = marketState.fx.CNY && marketState.fx.HKD
+    ? `USD/CNY ${marketState.fx.CNY.toFixed(3)}·HKD ${marketState.fx.HKD.toFixed(3)}`
+    : 'USDT';
 }
 
 function arbCell(v, pct) {
@@ -465,7 +503,7 @@ function renderTable() {
       ? `<td class="num">${fmt(r.mktBid)}${approxTip}</td><td class="num">${fmt(r.mktAsk)}${approxTip}</td>`
       : '<td class="num nodepth" colspan="2" title="腾讯行情无此标的（未上市/非 A股·港股·美股上市）">无对标行情</td>';
     const depthCell = r.spread === null
-      ? '<td class="num nodepth">—</td><td class="num nodepth">—</td>'
+      ? '<td class="num nodepth" colspan="2" title="Gate 暂无 best bid / ask 盘口">无 Gate 盘口</td>'
       : `<td class="num">${fmt(r.bid)}</td><td class="num">${fmt(r.ask)}</td>`;
     const chgCls = r.chg > 0 ? 'up' : r.chg < 0 ? 'down' : '';
     return `<tr data-symbol="${r.contract}"${r.fresh ? ' class="flash-new"' : ''}>
