@@ -464,8 +464,8 @@ function renderStats() {
   $('statOver').textContent = opp.length;
   $('statOverNote').textContent = '开仓差价 ≥ ' + state.threshold.toFixed(2) + '%';
   $('fxNote').textContent = marketState.fx.CNY && marketState.fx.HKD
-    ? `USD/CNY ${marketState.fx.CNY.toFixed(3)}·HKD ${marketState.fx.HKD.toFixed(3)}`
-    : 'USDT';
+    ? `USD 1:1 · CNY ${marketState.fx.CNY.toFixed(3)} · HKD ${marketState.fx.HKD.toFixed(3)}`
+    : 'USD 1:1 · USDT';
 }
 
 function arbCell(v, pct) {
