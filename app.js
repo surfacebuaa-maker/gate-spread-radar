@@ -11,8 +11,8 @@
  *   汇率     : open.er-api.com（USD 基准，日更缓存）
  *
  * 价差指标（统一"Gate − 市场"视角，Gate 侧为市价单成交价）：
- *   开仓差价% = (Gate买一 − 市场买一×汇率) / (市场买一×汇率)   [市场挂单买 + Gate 市价卖开仓]
- *   清仓差价% = (Gate卖一 − 市场卖一×汇率) / (市场卖一×汇率)   [市场挂单卖 + Gate 市价买平仓]
+ *   开仓差价% = (Gate买一 − 市场卖一×汇率) / (市场卖一×汇率)   [市场市价买 + Gate 市价卖开仓]
+ *   清仓差价% = (Gate卖一 − 市场买一×汇率) / (市场买一×汇率)   [市场市价卖 + Gate 市价买平仓]
  * ============================================================ */
 
 'use strict';
@@ -386,10 +386,10 @@ function tickerToRow(contract, t, fresh) {
   let openArbPct = null, openArb = null, closeArbPct = null, closeArb = null;
   let prem = null; // Gate 中间价相对市场中间价的溢/折价（+ 溢价）
   if (hasDepth && mkt) {
-    openArb = bid - mkt.bid;                    // 开仓：Gate 市价卖（吃买一）− 市场挂单买（买一）
-    openArbPct = mkt.bid > 0 ? (openArb / mkt.bid) * 100 : null;
-    closeArb = ask - mkt.ask;                   // 清仓：Gate 市价买（吃卖一）− 市场挂单卖（卖一）
-    closeArbPct = mkt.ask > 0 ? (closeArb / mkt.ask) * 100 : null;
+    openArb = bid - mkt.ask;                    // 开仓：Gate 市价卖（吃买一）− 市场市价买（吃卖一）
+    openArbPct = mkt.ask > 0 ? (openArb / mkt.ask) * 100 : null;
+    closeArb = ask - mkt.bid;                   // 清仓：Gate 市价买（吃卖一）− 市场市价卖（吃买一）
+    closeArbPct = mkt.bid > 0 ? (closeArb / mkt.bid) * 100 : null;
     const mMid = (mkt.bid + mkt.ask) / 2;
     const gMid = (bid + ask) / 2;
     prem = mMid > 0 ? (gMid - mMid) / mMid * 100 : null;
@@ -540,7 +540,7 @@ function renderAlerts() {
       if (!state.notified.has(r.contract)) {
         state.notified.add(r.contract);
         new Notification('开仓机会 ' + r.contract.replace('_USDT', ''), {
-          body: `${r.name}：开仓差价 ${fmt(r.openArbPct)}%（Gate卖一 ${fmt(r.ask)} vs 市场买一 ${fmt(r.mktBid)}）`,
+          body: `${r.name}：开仓差价 ${fmt(r.openArbPct)}%（Gate买一 ${fmt(r.bid)} vs 市场卖一 ${fmt(r.mktAsk)}）`,
           tag: r.contract,
         });
       }

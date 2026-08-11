@@ -72,8 +72,8 @@
       <tr>
         <th data-key="symbol">合约</th>
         <th data-key="name">名称</th>
-        <th data-key="openArbPct" class="num arb-col">开仓差价 % <span class="dim2">Gate买一−市场买一</span></th>
-        <th data-key="closeArbPct" class="num arb-col">清仓差价 % <span class="dim2">Gate卖一−市场卖一</span></th>
+        <th data-key="openArbPct" class="num arb-col">开仓差价 % <span class="dim2">Gate买一−市场卖一</span></th>
+        <th data-key="closeArbPct" class="num arb-col">清仓差价 % <span class="dim2">Gate卖一−市场买一</span></th>
         <th data-key="mktBid" class="num">市场买一 <span class="dim2" id="fxNote"></span></th>
         <th data-key="mktAsk" class="num">市场卖一 <span class="dim2">USDT</span></th>
         <th data-key="bid" class="num">Gate买一</th>
@@ -91,11 +91,11 @@
 
 <footer class="foot">
   <span>数据来源：Gate.io 合约盘口（highest_bid / lowest_ask，USDT）＋ 腾讯行情（A股/港股实时盘口、美股最新价，已按汇率换算 USDT）＋ open.er-api.com 汇率</span>
-  <span class="dim">策略：Gate 溢价收敛（买市场 + 卖 Gate）。开仓差价 = Gate买一 − 市场买一（&gt;0 开仓信号）；清仓差价 = Gate卖一 − 市场卖一（&gt;0 表示 Gate 仍有溢价、平仓不划算；收敛至 ≤0 为平仓时机）· 价差需覆盖手续费与滑点，数据仅供研究，不构成投资建议</span>
+  <span class="dim">策略：Gate 溢价收敛（买市场 + 卖 Gate）。开仓差价 = Gate买一 − 市场卖一（&gt;0 开仓信号）；清仓差价 = Gate卖一 − 市场买一（&gt;0 表示按当前可成交盘口平仓仍有溢价，收敛后再择机平仓）· 价差需覆盖双边买卖价差、手续费与滑点，数据仅供研究，不构成投资建议</span>
 </footer>
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="app.js?v=20260808-5"></script>
+<script src="app.js?v=20260811-1"></script>
 </body>
 </html>
