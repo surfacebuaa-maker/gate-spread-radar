@@ -31,6 +31,10 @@ const WS_SUB_BATCH = 100;
 const TENCENT_URL = 'https://qt.gtimg.cn/q=';
 const TENCENT_BATCH = 60;
 const FX_URL = 'https://open.er-api.com/v6/latest/USD';
+const HISTORY_BUCKET_MS = 5 * 60 * 1000;
+const HISTORY_RETENTION_MS = 3 * 24 * 60 * 60 * 1000;
+const HISTORY_DB_NAME = 'gate-spread-radar-history';
+const HISTORY_STORE = 'samples';
 
 let STOCK_NAMES = {};   // { CODE_USDT: {name, market, aCode, tencent, mkt, cur} }
 let lastSnapshot = null;
@@ -58,6 +62,24 @@ const marketState = {
   fxTimer: null,
   loading: false,
   queued: false,
+};
+
+/* ---------------- 本机历史价差状态 ---------------- */
+const historyState = {
+  dbPromise: null,
+  memory: new Map(),
+  savedBuckets: {},
+  pendingBuckets: new Set(),
+  recordTimers: {},
+  activeContract: null,
+  rangeHours: 4,
+  chartPoints: [],
+  chartWidth: 960,
+  chartSince: 0,
+  chartNow: 0,
+  renderToken: 0,
+  previousFocus: null,
+  previousContract: null,
 };
 
 /* ---------------- 模式探测 ---------------- */
@@ -408,6 +430,349 @@ function tickerToRow(contract, t, fresh) {
   };
 }
 
+/* ================= 历史价差（IndexedDB，本机滚动 3 天） ================= */
+
+function openHistoryDb() {
+  if (historyState.dbPromise) return historyState.dbPromise;
+  if (!('indexedDB' in window)) {
+    historyState.dbPromise = Promise.resolve(null);
+    return historyState.dbPromise;
+  }
+  historyState.dbPromise = new Promise((resolve) => {
+    const request = indexedDB.open(HISTORY_DB_NAME, 1);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      const store = db.createObjectStore(HISTORY_STORE, { keyPath: 'id' });
+      store.createIndex('contractTs', ['contract', 'ts']);
+      store.createIndex('ts', 'ts');
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => {
+      console.warn('历史价差数据库不可用，已退回当前页面内存', request.error);
+      resolve(null);
+    };
+    request.onblocked = () => resolve(null);
+  });
+  return historyState.dbPromise;
+}
+
+function rowsForView(view) {
+  const rows = lastSnapshot || [];
+  if (view === 'ashare') return rows.filter((r) => r.market === 'A股');
+  if (view === 'hk') return rows.filter((r) => r.mktMkt === '港股');
+  return rows;
+}
+
+function compactHistoryNumber(value) {
+  return value === null || !isFinite(value) ? null : Number(value.toFixed(4));
+}
+
+function historyRecord(row, bucket) {
+  return {
+    id: row.contract + ':' + bucket,
+    contract: row.contract,
+    ts: bucket,
+    openArbPct: compactHistoryNumber(row.openArbPct),
+    closeArbPct: compactHistoryNumber(row.closeArbPct),
+  };
+}
+
+function saveHistoryToMemory(records) {
+  const cutoff = Date.now() - HISTORY_RETENTION_MS;
+  records.forEach((record) => {
+    const list = historyState.memory.get(record.contract) || [];
+    const kept = list.filter((item) => item.ts >= cutoff && item.id !== record.id);
+    kept.push(record);
+    historyState.memory.set(record.contract, kept);
+  });
+}
+
+async function saveHistoryRecords(records) {
+  const db = await openHistoryDb();
+  if (!db) {
+    saveHistoryToMemory(records);
+    return;
+  }
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(HISTORY_STORE, 'readwrite');
+    const store = tx.objectStore(HISTORY_STORE);
+    records.forEach((record) => store.put(record));
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error);
+  });
+}
+
+async function pruneHistoryRecords() {
+  const now = Date.now();
+  const lastPrune = Number(localStorage.getItem('gssm-history-pruned-at')) || 0;
+  if (now - lastPrune < 60 * 60 * 1000) return;
+  localStorage.setItem('gssm-history-pruned-at', String(now));
+  const db = await openHistoryDb();
+  if (!db) return;
+  const cutoff = now - HISTORY_RETENTION_MS;
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(HISTORY_STORE, 'readwrite');
+    const index = tx.objectStore(HISTORY_STORE).index('ts');
+    const request = index.openCursor(IDBKeyRange.upperBound(cutoff, true));
+    request.onsuccess = () => {
+      const cursor = request.result;
+      if (!cursor) return;
+      cursor.delete();
+      cursor.continue();
+    };
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error);
+  });
+}
+
+async function readHistoryRecords(contract, since) {
+  const db = await openHistoryDb();
+  if (!db) {
+    return (historyState.memory.get(contract) || [])
+      .filter((item) => item.ts >= since)
+      .sort((a, b) => a.ts - b.ts);
+  }
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(HISTORY_STORE, 'readonly');
+    const index = tx.objectStore(HISTORY_STORE).index('contractTs');
+    const range = IDBKeyRange.bound([contract, since], [contract, Date.now() + HISTORY_BUCKET_MS]);
+    const request = index.getAll(range);
+    request.onsuccess = () => resolve(request.result.sort((a, b) => a.ts - b.ts));
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function recordHistorySnapshot(bucket, view) {
+  const pendingKey = view + ':' + bucket;
+  historyState.pendingBuckets.delete(pendingKey);
+  const rows = rowsForView(view).filter((row) =>
+    row.openArbPct !== null && row.closeArbPct !== null &&
+    isFinite(row.openArbPct) && isFinite(row.closeArbPct));
+  if (!rows.length) return;
+  try {
+    await saveHistoryRecords(rows.map((row) => historyRecord(row, bucket)));
+    historyState.savedBuckets[view] = bucket;
+    pruneHistoryRecords().catch((e) => console.warn('历史价差清理失败', e));
+    if (historyState.activeContract && !$('historyModal').classList.contains('hidden')) {
+      renderHistoryModal();
+    }
+  } catch (e) {
+    console.warn('历史价差保存失败', e);
+  }
+}
+
+function maybeRecordHistory() {
+  const bucket = Math.floor(Date.now() / HISTORY_BUCKET_MS) * HISTORY_BUCKET_MS;
+  const view = state.view;
+  const pendingKey = view + ':' + bucket;
+  if (historyState.savedBuckets[view] === bucket || historyState.pendingBuckets.has(pendingKey)) return;
+  historyState.pendingBuckets.add(pendingKey);
+  clearTimeout(historyState.recordTimers[view]);
+  historyState.recordTimers[view] = setTimeout(() => recordHistorySnapshot(bucket, view), 2500);
+}
+
+function formatHistoryPct(value) {
+  if (value === null || value === undefined || !isFinite(value)) return '—';
+  return (value > 0 ? '+' : '') + fmt(value) + '%';
+}
+
+function formatHistoryTime(ts, withDate = false) {
+  return new Date(ts).toLocaleString('zh-CN', {
+    month: withDate ? '2-digit' : undefined,
+    day: withDate ? '2-digit' : undefined,
+    hour: '2-digit', minute: '2-digit', hour12: false,
+  });
+}
+
+function liveHistoryRecord(contract) {
+  const row = (lastSnapshot || []).find((item) => item.contract === contract);
+  if (!row || row.openArbPct === null || row.closeArbPct === null) return null;
+  return historyRecord(row, Date.now());
+}
+
+async function openHistoryModal(contract, trigger) {
+  const row = (lastSnapshot || []).find((item) => item.contract === contract);
+  if (!row) return;
+  historyState.activeContract = contract;
+  historyState.previousFocus = trigger || document.activeElement;
+  historyState.previousContract = contract;
+  $('historyTitle').textContent = contract.replace('_USDT', '') + '/USDT · ' + row.name;
+  $('historySubtitle').textContent = 'Gate 盘口 vs ' + (row.mktMkt || row.market || '真实市场') + '盘口';
+  $('historyModal').classList.remove('hidden');
+  document.body.classList.add('modal-open');
+  $('historyClose').focus();
+  await renderHistoryModal();
+}
+
+function closeHistoryModal() {
+  $('historyModal').classList.add('hidden');
+  document.body.classList.remove('modal-open');
+  hideHistoryTooltip();
+  const previous = historyState.previousFocus;
+  const previousContract = historyState.previousContract;
+  historyState.previousFocus = null;
+  historyState.previousContract = null;
+  if (previous && document.contains(previous)) previous.focus();
+  else if (previousContract) {
+    const currentButton = document.querySelector(`.history-btn[data-history="${previousContract}"]`);
+    if (currentButton) currentButton.focus();
+  }
+}
+
+async function renderHistoryModal() {
+  const contract = historyState.activeContract;
+  if (!contract) return;
+  const token = ++historyState.renderToken;
+  const now = Date.now();
+  const since = now - historyState.rangeHours * 60 * 60 * 1000;
+  $('historyMeta').textContent = '正在读取…';
+  try {
+    let points = await readHistoryRecords(contract, since);
+    if (token !== historyState.renderToken || historyState.activeContract !== contract) return;
+    const live = liveHistoryRecord(contract);
+    if (live) {
+      const last = points[points.length - 1];
+      if (last && Math.floor(last.ts / HISTORY_BUCKET_MS) === Math.floor(live.ts / HISTORY_BUCKET_MS)) {
+        points[points.length - 1] = live;
+      } else {
+        points.push(live);
+      }
+    }
+    points = points.filter((point) => point.ts >= since).sort((a, b) => a.ts - b.ts);
+    renderHistorySummary(points);
+    renderHistoryChart(points, since, now);
+  } catch (e) {
+    console.error('历史价差读取失败', e);
+    $('historyMeta').textContent = '读取失败';
+    $('historyChart').classList.add('hidden');
+    $('historyEmpty').classList.remove('hidden');
+    $('historyEmpty').querySelector('strong').textContent = '历史记录读取失败';
+    $('historyEmpty').querySelector('span').textContent = '请稍后重试，当前实时行情不受影响。';
+  }
+}
+
+function renderHistorySummary(points) {
+  const latest = points[points.length - 1];
+  const openValues = points.map((point) => point.openArbPct).filter(isFinite);
+  const closeValues = points.map((point) => point.closeArbPct).filter(isFinite);
+  $('histOpenNow').textContent = latest ? formatHistoryPct(latest.openArbPct) : '—';
+  $('histOpenHigh').textContent = openValues.length ? formatHistoryPct(Math.max(...openValues)) : '—';
+  $('histCloseNow').textContent = latest ? formatHistoryPct(latest.closeArbPct) : '—';
+  $('histCloseLow').textContent = closeValues.length ? formatHistoryPct(Math.min(...closeValues)) : '—';
+  if (!points.length) {
+    $('historyMeta').textContent = '暂无采样点';
+  } else {
+    $('historyMeta').textContent = points.length + ' 个采样点 · ' +
+      formatHistoryTime(points[0].ts, true) + ' — ' + formatHistoryTime(points[points.length - 1].ts, true);
+  }
+}
+
+function historyPath(points, key, xFor, yFor) {
+  let previousTs = null;
+  return points.map((point) => {
+    const command = previousTs === null || point.ts - previousTs > HISTORY_BUCKET_MS * 3 ? 'M' : 'L';
+    previousTs = point.ts;
+    return command + xFor(point.ts).toFixed(2) + ' ' + yFor(point[key]).toFixed(2);
+  }).join(' ');
+}
+
+function renderHistoryChart(points, since, now) {
+  historyState.chartPoints = [];
+  historyState.chartSince = since;
+  historyState.chartNow = now;
+  hideHistoryTooltip();
+
+  const chart = $('historyChart');
+  const empty = $('historyEmpty');
+  if (points.length < 2) {
+    chart.classList.add('hidden');
+    empty.classList.remove('hidden');
+    empty.querySelector('strong').textContent = points.length ? '已记录当前价差' : '还没有历史记录';
+    empty.querySelector('span').textContent = points.length
+      ? '再获得一个 5 分钟采样点后即可绘制曲线。'
+      : '保持页面打开，系统会为当前视图每 5 分钟保存一个盘口价差点。';
+    return;
+  }
+  chart.classList.remove('hidden');
+  empty.classList.add('hidden');
+
+  const width = Math.max($('historyChartWrap').clientWidth || 960, 320), height = 340;
+  historyState.chartWidth = width;
+  chart.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  const pad = { left: 62, right: 20, top: 20, bottom: 42 };
+  const plotW = width - pad.left - pad.right;
+  const plotH = height - pad.top - pad.bottom;
+  const values = [0];
+  points.forEach((point) => values.push(point.openArbPct, point.closeArbPct));
+  let minY = Math.min(...values), maxY = Math.max(...values);
+  const yPadding = Math.max((maxY - minY) * 0.12, 0.1);
+  minY -= yPadding;
+  maxY += yPadding;
+  const xFor = (ts) => pad.left + ((ts - since) / Math.max(now - since, 1)) * plotW;
+  const yFor = (value) => pad.top + ((maxY - value) / Math.max(maxY - minY, 0.01)) * plotH;
+
+  const grid = [];
+  for (let i = 0; i <= 4; i += 1) {
+    const y = pad.top + plotH * i / 4;
+    const value = maxY - (maxY - minY) * i / 4;
+    grid.push(`<line class="chart-grid-line" x1="${pad.left}" x2="${width - pad.right}" y1="${y}" y2="${y}"></line>`);
+    grid.push(`<text class="chart-axis-label" x="${pad.left - 10}" y="${y + 4}" text-anchor="end">${fmt(value)}%</text>`);
+  }
+  [since, since + (now - since) / 2, now].forEach((ts, index) => {
+    const x = xFor(ts);
+    const anchor = index === 0 ? 'start' : index === 2 ? 'end' : 'middle';
+    grid.push(`<text class="chart-axis-label" x="${x}" y="${height - 12}" text-anchor="${anchor}">${formatHistoryTime(ts, historyState.rangeHours > 4)}</text>`);
+  });
+  $('historyGrid').innerHTML = grid.join('');
+  $('historyZeroLine').setAttribute('d', `M${pad.left} ${yFor(0)} L${width - pad.right} ${yFor(0)}`);
+  $('historyOpenPath').setAttribute('d', historyPath(points, 'openArbPct', xFor, yFor));
+  $('historyClosePath').setAttribute('d', historyPath(points, 'closeArbPct', xFor, yFor));
+  historyState.chartPoints = points.map((point) => ({
+    ...point,
+    x: xFor(point.ts),
+    openY: yFor(point.openArbPct),
+    closeY: yFor(point.closeArbPct),
+  }));
+}
+
+function hideHistoryTooltip() {
+  $('historyTooltip').classList.add('hidden');
+  $('historyCrosshair').classList.add('hidden');
+  $('historyOpenDot').classList.add('hidden');
+  $('historyCloseDot').classList.add('hidden');
+}
+
+function showHistoryTooltip(event) {
+  const points = historyState.chartPoints;
+  if (!points.length) return;
+  const wrap = $('historyChartWrap');
+  const rect = wrap.getBoundingClientRect();
+  const svgX = Math.max(0, Math.min(historyState.chartWidth, (event.clientX - rect.left) / rect.width * historyState.chartWidth));
+  let nearest = points[0];
+  points.forEach((point) => {
+    if (Math.abs(point.x - svgX) < Math.abs(nearest.x - svgX)) nearest = point;
+  });
+  const crosshair = $('historyCrosshair');
+  crosshair.setAttribute('x1', nearest.x);
+  crosshair.setAttribute('x2', nearest.x);
+  crosshair.classList.remove('hidden');
+  const openDot = $('historyOpenDot');
+  openDot.setAttribute('cx', nearest.x);
+  openDot.setAttribute('cy', nearest.openY);
+  openDot.classList.remove('hidden');
+  const closeDot = $('historyCloseDot');
+  closeDot.setAttribute('cx', nearest.x);
+  closeDot.setAttribute('cy', nearest.closeY);
+  closeDot.classList.remove('hidden');
+  const tooltip = $('historyTooltip');
+  tooltip.innerHTML = `<b>${formatHistoryTime(nearest.ts, true)}</b><span>开仓 ${formatHistoryPct(nearest.openArbPct)}</span><span>清仓 ${formatHistoryPct(nearest.closeArbPct)}</span>`;
+  tooltip.classList.remove('hidden');
+  const left = nearest.x / historyState.chartWidth * rect.width;
+  tooltip.style.left = Math.max(82, Math.min(rect.width - 82, left)) + 'px';
+}
+
 /* ---------------- 过滤 / 排序 ---------------- */
 
 function filteredRows() {
@@ -444,6 +809,7 @@ function render() {
   renderStats();
   renderTable();
   renderAlerts();
+  maybeRecordHistory();
 }
 
 function renderStats() {
@@ -487,7 +853,7 @@ function renderTable() {
   const tbody = $('tbody');
   const rows = filteredRows();
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="11" class="empty-row">暂无符合条件的合约</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="12" class="empty-row">暂无符合条件的合约</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((r) => {
@@ -516,6 +882,7 @@ function renderTable() {
       <td class="num ${chgCls}">${r.chg > 0 ? '+' : ''}${fmt(r.chg, 2)}%</td>
       <td class="num" title="24h 成交额（USDT）">${fmtVol(r.vol)}</td>
       <td class="num">${fmt(r.oi, 0)}</td>
+      <td class="history-cell"><button type="button" class="history-btn" data-history="${r.contract}" aria-label="查看 ${r.contract} 的历史价差">查看</button></td>
     </tr>`;
   }).join('');
 }
@@ -595,6 +962,29 @@ function bindEvents() {
     if (Notification.permission === 'granted') return toast('通知已开启');
     const p = await Notification.requestPermission();
     toast(p === 'granted' ? '通知已开启，价差机会超阈值时将提醒' : '通知权限被拒绝');
+  });
+
+  $('tbody').addEventListener('click', (e) => {
+    const btn = e.target.closest('.history-btn');
+    if (!btn) return;
+    openHistoryModal(btn.dataset.history, btn);
+  });
+
+  $('historyClose').addEventListener('click', closeHistoryModal);
+  $('historyModal').addEventListener('click', (e) => {
+    if (e.target === $('historyModal')) closeHistoryModal();
+  });
+  $('historyRange').addEventListener('click', (e) => {
+    const btn = e.target.closest('.seg-btn[data-hours]');
+    if (!btn) return;
+    historyState.rangeHours = Number(btn.dataset.hours);
+    $('historyRange').querySelectorAll('.seg-btn').forEach((item) => item.classList.toggle('active', item === btn));
+    renderHistoryModal();
+  });
+  $('historyChartWrap').addEventListener('pointermove', showHistoryTooltip);
+  $('historyChartWrap').addEventListener('pointerleave', hideHistoryTooltip);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !$('historyModal').classList.contains('hidden')) closeHistoryModal();
   });
 
   document.querySelectorAll('thead th[data-key]').forEach((th) => {
