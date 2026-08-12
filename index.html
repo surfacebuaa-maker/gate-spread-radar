@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gate 股票合约 × 真实市场 开平仓价差监控</title>
-<link rel="stylesheet" href="style.css?v=20260808-2">
+<link rel="stylesheet" href="style.css?v=20260813-1">
 </head>
 <body>
 
@@ -81,10 +81,11 @@
         <th data-key="chg" class="num">24h 涨跌</th>
         <th data-key="vol" class="num">24h 成交额</th>
         <th data-key="oi" class="num">持仓量</th>
+        <th class="history-col">历史价差</th>
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr><td colspan="11" class="loading-row">正在加载数据…</td></tr>
+      <tr><td colspan="12" class="loading-row">正在加载数据…</td></tr>
     </tbody>
   </table>
 </section>
@@ -96,6 +97,61 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="app.js?v=20260811-1"></script>
+<div id="historyModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker">历史价差</div>
+        <h2 id="historyTitle">—</h2>
+        <div id="historySubtitle" class="modal-subtitle">Gate 盘口 vs 真实市场盘口</div>
+      </div>
+      <button id="historyClose" class="icon-btn" type="button" aria-label="关闭历史价差">✕</button>
+    </div>
+
+    <div class="history-controls">
+      <div class="seg history-range" id="historyRange" aria-label="历史时间范围">
+        <button type="button" class="seg-btn active" data-hours="4">4 小时</button>
+        <button type="button" class="seg-btn" data-hours="24">1 天</button>
+        <button type="button" class="seg-btn" data-hours="72">3 天</button>
+      </div>
+      <span id="historyMeta" class="history-meta">正在读取…</span>
+    </div>
+
+    <div class="history-stats">
+      <div class="history-stat"><span>最新开仓</span><strong id="histOpenNow">—</strong></div>
+      <div class="history-stat"><span>区间最高</span><strong id="histOpenHigh">—</strong></div>
+      <div class="history-stat"><span>最新清仓</span><strong id="histCloseNow">—</strong></div>
+      <div class="history-stat"><span>区间最低</span><strong id="histCloseLow">—</strong></div>
+    </div>
+
+    <div class="history-chart-wrap" id="historyChartWrap">
+      <svg id="historyChart" class="history-chart" viewBox="0 0 960 340" preserveAspectRatio="none" role="img" aria-label="开仓与清仓价差历史曲线">
+        <g id="historyGrid"></g>
+        <path id="historyZeroLine" class="chart-zero"></path>
+        <path id="historyOpenPath" class="chart-line chart-open"></path>
+        <path id="historyClosePath" class="chart-line chart-close"></path>
+        <line id="historyCrosshair" class="chart-crosshair hidden" x1="0" x2="0" y1="20" y2="298"></line>
+        <circle id="historyOpenDot" class="chart-dot chart-open-dot hidden" r="4"></circle>
+        <circle id="historyCloseDot" class="chart-dot chart-close-dot hidden" r="4"></circle>
+      </svg>
+      <div id="historyTooltip" class="history-tooltip hidden"></div>
+      <div id="historyEmpty" class="history-empty hidden">
+        <strong>还没有足够的历史记录</strong>
+        <span>保持页面打开，系统会为当前视图每 5 分钟保存一个盘口价差点。</span>
+      </div>
+    </div>
+
+    <div class="history-foot">
+      <div class="history-legend">
+        <span><i class="legend-line open"></i>开仓差价</span>
+        <span><i class="legend-line close"></i>清仓差价</span>
+        <span><i class="legend-line zero"></i>0%</span>
+      </div>
+      <p>历史记录保存在当前浏览器，按当前视图每 5 分钟采样并滚动保留 3 天；页面关闭或设备休眠期间不会补录。</p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js?v=20260813-1"></script>
 </body>
 </html>
