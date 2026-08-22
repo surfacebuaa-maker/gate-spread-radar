@@ -673,7 +673,7 @@
   "mkt": "美股",
   "cur": "USD"
  },
- "ZJINNOLIGHT_USDT": {
+ "ZHONGJI_USDT": {
   "name": "中际旭创 03308.HK",
   "market": "港股",
   "aCode": "300308.SZ",
@@ -2304,5 +2304,278 @@
   "tencent": "sh600522",
   "mkt": "A股",
   "cur": "CNY"
+ },
+ "CSOPSKHYNIX2L_USDT": {
+  "name": "南方东英 SK 海力士每日 2 倍 07709.HK",
+  "market": "港股",
+  "tencent": "hk07709",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "CSOPSAMSUNG2L_USDT": {
+  "name": "南方东英三星电子每日 2 倍 07747.HK",
+  "market": "港股",
+  "tencent": "hk07747",
+  "mkt": "港股",
+  "cur": "HKD"
+ },
+ "SSPC_USDT": {
+  "name": "Leverage Shares 2 倍做空 SpaceX ETF",
+  "market": "其他",
+  "tencent": "usSSPC",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "SPCH_USDT": {
+  "name": "Leverage Shares 2 倍做多 SpaceX ETF",
+  "market": "其他",
+  "tencent": "usSPCH",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "GFS_USDT": {
+  "name": "格芯",
+  "market": "其他",
+  "tencent": "usGFS",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VST_USDT": {
+  "name": "Vistra",
+  "market": "其他",
+  "tencent": "usVST",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "OKTA_USDT": {
+  "name": "Okta",
+  "market": "其他",
+  "tencent": "usOKTA",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "OUST_USDT": {
+  "name": "Ouster",
+  "market": "其他",
+  "tencent": "usOUST",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "MO_USDT": {
+  "name": "奥驰亚集团",
+  "market": "其他",
+  "tencent": "usMO",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CIFR_USDT": {
+  "name": "赛弗数字",
+  "market": "其他",
+  "tencent": "usCIFR",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "NET_USDT": {
+  "name": "Cloudflare",
+  "market": "其他",
+  "tencent": "usNET",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "VRTX_USDT": {
+  "name": "福泰制药",
+  "market": "其他",
+  "tencent": "usVRTX",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "BIIB_USDT": {
+  "name": "渤健",
+  "market": "其他",
+  "tencent": "usBIIB",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "CLSK_USDT": {
+  "name": "CleanSpark",
+  "market": "其他",
+  "tencent": "usCLSK",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "REGN_USDT": {
+  "name": "再生元制药",
+  "market": "其他",
+  "tencent": "usREGN",
+  "mkt": "美股",
+  "cur": "USD"
+ },
+ "HANMI_USDT": {
+  "name": "韩美半导体 042700.KS",
+  "market": "其他",
+  "tencent": "",
+  "mkt": null,
+  "cur": "USD"
+ },
+ "LGELECTRONICS_USDT": {
+  "name": "LG 电子 066570.KS",
+  "market": "其他",
+  "tencent": "",
+  "mkt": null,
+  "cur": "USD"
+ },
+ "NAVER_USDT": {
+  "name": "NAVER 035420.KS",
+  "market": "其他",
+  "tencent": "",
+  "mkt": null,
+  "cur": "USD"
+ },
+ "KODEX200_USDT": {
+  "name": "三星 KODEX 200 ETF",
+  "market": "其他",
+  "tencent": "",
+  "mkt": null,
+  "cur": "USD"
+ },
+ "SHENHUA_USDT": {
+  "name": "中国神华 601088.SH",
+  "market": "A股",
+  "tencent": "sh601088",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "YANGTZE_USDT": {
+  "name": "长江电力 600900.SH",
+  "market": "A股",
+  "tencent": "sh600900",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "HYGON_USDT": {
+  "name": "海光信息 688041.SH",
+  "market": "A股",
+  "tencent": "sh688041",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "MIDEA_USDT": {
+  "name": "美的集团 000333.SZ",
+  "market": "A股",
+  "tencent": "sz000333",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "BEIGENE_USDT": {
+  "name": "百济神州 688235.SH",
+  "market": "A股",
+  "tencent": "sh688235",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "MOUTAI_USDT": {
+  "name": "贵州茅台 600519.SH",
+  "market": "A股",
+  "tencent": "sh600519",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "HENGRUI_USDT": {
+  "name": "恒瑞医药 600276.SH",
+  "market": "A股",
+  "tencent": "sh600276",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "BIWIN_USDT": {
+  "name": "佰维存储 688525.SH",
+  "market": "A股",
+  "tencent": "sh688525",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "DEMINGLI_USDT": {
+  "name": "德明利 001309.SZ",
+  "market": "A股",
+  "tencent": "sz001309",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "TAIJI_USDT": {
+  "name": "太极实业 600667.SH",
+  "market": "A股",
+  "tencent": "sh600667",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "ACCELINK_USDT": {
+  "name": "光迅科技 002281.SZ",
+  "market": "A股",
+  "tencent": "sz002281",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "PUYA_USDT": {
+  "name": "普冉股份 688766.SH",
+  "market": "A股",
+  "tencent": "sh688766",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "HUAGONGTECH_USDT": {
+  "name": "华工科技 000988.SZ",
+  "market": "A股",
+  "tencent": "sz000988",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "WANGSU_USDT": {
+  "name": "网宿科技 300017.SZ",
+  "market": "A股",
+  "tencent": "sz300017",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "CIG_USDT": {
+  "name": "剑桥科技 603083.SH",
+  "market": "A股",
+  "tencent": "sh603083",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "TONGGUAN_USDT": {
+  "name": "铜冠铜箔 301217.SZ",
+  "market": "A股",
+  "tencent": "sz301217",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "JUNZHENG_USDT": {
+  "name": "君正股份 300223.SZ",
+  "market": "A股",
+  "tencent": "sz300223",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "XIECHUANG_USDT": {
+  "name": "协创数据 300857.SZ",
+  "market": "A股",
+  "tencent": "sz300857",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "YONGDING_USDT": {
+  "name": "永鼎股份 600105.SH",
+  "market": "A股",
+  "tencent": "sh600105",
+  "mkt": "A股",
+  "cur": "CNY"
+ },
+ "MRNA_USDT": {
+  "name": "莫德纳",
+  "market": "其他",
+  "tencent": "usMRNA",
+  "mkt": "美股",
+  "cur": "USD"
  }
 }

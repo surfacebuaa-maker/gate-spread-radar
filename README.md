@@ -7,7 +7,7 @@
 
 ## 工作原理
 
-- Gate.io 合约盘口：浏览器直连 Gate 期货 WebSocket（`wss://fx-ws.gateio.ws/v4/ws/usdt/`），订阅 `futures.tickers` 与 `futures.book_ticker`（307 个股票合约）
+- Gate.io 合约盘口：浏览器直连 Gate 期货 WebSocket（`wss://fx-ws.gateio.ws/v4/ws/usdt/`），订阅 `futures.tickers` 与 `futures.book_ticker`（截至 2026-08-22，覆盖 Gate 当前 365 个 `contract_type=stocks` 合约；另保留 2 个历史 TradFi 合约）
 - 真实市场行情：腾讯行情接口 `qt.gtimg.cn`（A股/港股实时盘口、美股最新价，CORS 可用）
 - 汇率换算：`open.er-api.com`（USD 基准，浏览器本地缓存 6 小时）
 - 无 `/api` 后端时自动进入 WS 模式，因此可在任意静态托管运行

@@ -2,7 +2,7 @@
  * Gate 股票合约 × 真实市场 开平仓价差监控
  *
  * 双数据源模式：
- *   本地模式 : 同源 /api/health 可用 → REST 轮询（完整 307 合约）
+ *   本地模式 : 同源 /api/health 可用 → REST 轮询（完整映射清单）
  *   WS 模式   : 云端静态托管 → 直连 Gate 期货 WebSocket
  *
  * 真实市场行情（腾讯行情接口，CORS 可用，浏览器直连）：
@@ -818,7 +818,7 @@ function renderStats() {
   $('statCount').textContent = rows.length;
   $('statCountNote').textContent =
     state.view === 'ashare' ? '对标 A 股的合约' :
-    state.view === 'hk' ? '对标港股的合约' : '全部股票合约';
+    state.view === 'hk' ? '对标港股的合约' : '全部监控合约';
   const openBest = withMkt.filter((r) => r.openArbPct !== null).sort((a, b) => b.openArbPct - a.openArbPct)[0];
   $('statOpen').textContent = openBest ? fmt(openBest.openArbPct) + '%' : '—';
   $('statOpenNote').textContent = openBest ? openBest.contract.replace('_USDT', '') + ' ' + openBest.name : '暂无数据';
